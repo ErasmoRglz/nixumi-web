@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Dark mode: dispara cuando un ancestro tiene la clase .dark */
+@variant dark (.dark &);
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Nixumi brand palette */
+  --color-navy:    #253545;
+  --color-purple:  #8B5CF6;
+  --color-green:   #5FB85F;
+  --color-slate:   #A8B5C4;
+  --color-lavender:#C9A8D4;
+  --color-smoke:   #F5F7F8;
+}
+
+/* ── Dark mode: inversiones semánticas de paleta ── */
+.dark {
+  --color-navy:    #F5F7F8;  /* texto principal: smoke claro sobre fondo oscuro */
+  --color-purple:  #A78BFA;  /* purple más luminoso para contraste en oscuro    */
+  --color-green:   #7EC97E;  /* green suavizado para no "gritar" en oscuro       */
+  --color-slate:   #94A3B8;  /* slate-400: contraste 6.8:1 sobre #0F1419 → WCAG AA */
+  --color-lavender:#A78BFA;  /* lavender más saturado                            */
+  --color-smoke:   #0F1419;  /* fondo base: navy muy oscuro                      */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-smoke);
+  color: var(--color-navy);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* ── Header sticky scroll bg (auto dark via CSS var) ── */
+.header-scrolled {
+  background-color: color-mix(in srgb, var(--color-smoke) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Scroll-triggered fade-in ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-d1 { transition-delay: 80ms;  }
+.fade-d2 { transition-delay: 160ms; }
+.fade-d3 { transition-delay: 240ms; }
+.fade-d4 { transition-delay: 320ms; }
+.fade-d5 { transition-delay: 400ms; }
+.fade-d6 { transition-delay: 480ms; }
+

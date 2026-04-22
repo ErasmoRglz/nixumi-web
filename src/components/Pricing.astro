@@ -1,0 +1,476 @@
+---
+const WA_ARRANQUE    = 'https://wa.me/5212381238389?text=Hola%2C%20me%20interesa%20el%20plan%20Arranque%20de%20Nixumi%20con%20descuento%20Fundadores';
+const WA_CRECIMIENTO = 'https://wa.me/5212381238389?text=Hola%2C%20me%20interesa%20el%20plan%20Crecimiento%20de%20Nixumi%20con%20descuento%20Fundadores';
+const WA_ENTERPRISE  = 'https://wa.me/5212381238389?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20de%20Nixumi';
+
+const trustSignals = [
+  'Sin contratos forzosos',
+  'Cancelas cuando quieras',
+  'Precio fijo garantizado',
+  'Facturación formal con RFC',
+  'Soporte en español mexicano',
+];
+
+type Bullet = { text: string; inherit?: true };
+
+const arranqueBullets: Bullet[] = [
+  { text: 'Chatbot con IA activo 24/7' },
+  { text: 'Mensajes de texto ilimitados' },
+  { text: 'FAQs dinámicas (actualizables cuando quieras)' },
+  { text: 'Catálogo consultable por texto' },
+  { text: 'Human Takeover (tu equipo toma control cuando lo necesite)' },
+  { text: 'Memoria conversacional (el bot recuerda a cada cliente)' },
+  { text: 'Soporte diario 24/7' },
+];
+
+const crecimientoBullets: Bullet[] = [
+  { text: 'Todo lo del plan Arranque, más:', inherit: true },
+  { text: 'Envío de imágenes y catálogos visuales' },
+  { text: 'Escucha y entiende mensajes de voz' },
+  { text: 'Genera PDFs de cotización automáticamente' },
+];
+
+const enterpriseBullets: Bullet[] = [
+  { text: 'Todo lo del plan Crecimiento, más:', inherit: true },
+  { text: 'Interpreta imágenes que el cliente envía (fotos de productos, documentos)' },
+  { text: 'Desarrollo 100% a la medida' },
+  { text: 'Integraciones personalizadas con tus sistemas' },
+  { text: 'Soporte prioritario' },
+];
+---
+
+<section id="precios" class="aurora-subtle py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+    <!-- ── Heading ── -->
+    <div class="text-center mb-10 fade-in">
+      <div
+        class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full mb-4"
+        style="background:rgba(95,184,95,0.10); color:var(--color-green)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+        </svg>
+        Planes y precios
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" style="color:var(--color-navy)">
+        Planes claros, sin letras chiquitas
+      </h2>
+      <p class="text-base md:text-lg max-w-xl mx-auto text-slate-500 dark:text-slate-400">
+        Setup único + mensualidad. Cancelas cuando quieras. Sin contratos forzosos ni sorpresas.
+      </p>
+    </div>
+
+    <!-- ── Promo banner ── -->
+    <div
+      class="fade-in rounded-2xl p-6 md:p-8 mb-8"
+      style="background:linear-gradient(135deg, var(--color-purple) 0%, var(--color-lavender) 100%)"
+    >
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+        <!-- Text -->
+        <div class="flex-1">
+          <p class="text-white font-extrabold text-xl md:text-2xl mb-1.5">
+            🎉 Oferta Fundadores — 50% de descuento en setup
+          </p>
+          <p class="text-sm md:text-base leading-relaxed" style="color:rgba(255,255,255,0.82)">
+            Para los primeros 10 negocios de la región Puebla-Veracruz que se sumen a Nixumi.
+            Aplica solo al pago único de setup, mensualidad regular.
+          </p>
+        </div>
+        <!-- Progress -->
+        <div
+          class="w-full md:w-52 flex-shrink-0 rounded-xl p-4"
+          style="background:rgba(255,255,255,0.18)"
+        >
+          <p class="text-white text-xs font-semibold mb-2 uppercase tracking-wide">Plazas disponibles</p>
+          <div class="flex items-baseline gap-1.5 mb-3">
+            <span class="text-white font-extrabold text-3xl leading-none">7</span>
+            <span class="text-sm font-medium" style="color:rgba(255,255,255,0.65)">de 10</span>
+          </div>
+          <div class="h-2 rounded-full overflow-hidden" style="background:rgba(255,255,255,0.25)">
+            <div class="h-full rounded-full bg-white" style="width:70%"></div>
+          </div>
+          <p class="text-[10px] mt-1.5 font-medium" style="color:rgba(255,255,255,0.6)">3 plazas ya tomadas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Currency toggle ── -->
+    <div class="flex justify-center mb-10 fade-in">
+      <div
+        class="inline-flex rounded-xl p-1 bg-white dark:bg-slate-900"
+        style="border:1.5px solid rgba(168,181,196,0.35)"
+        role="group"
+        aria-label="Seleccionar moneda"
+      >
+        <button
+          id="btn-mxn"
+          class="currency-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
+          aria-pressed="true"
+          style="background:var(--color-purple); color:#fff"
+        >
+          🇲🇽 MXN
+        </button>
+        <button
+          id="btn-usd"
+          class="currency-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
+          aria-pressed="false"
+          style="background:transparent; color:var(--color-slate)"
+        >
+          🇺🇸 USD
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Pricing grid ── -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-5 items-stretch">
+
+      <!-- ─── TARJETA 1: ARRANQUE (order-2 mobile, order-1 desktop) ─── -->
+      <div
+        class="plan-card fade-in fade-d2 flex flex-col rounded-2xl p-7 order-2 lg:order-1 bg-white dark:bg-[#1a2535]"
+        style="border:1.5px solid rgba(168,181,196,0.3)"
+      >
+        <!-- Header -->
+        <div class="mb-6">
+          <h3 class="text-xl font-extrabold mb-1" style="color:var(--color-navy)">Arranque</h3>
+          <p class="text-sm leading-snug" style="color:var(--color-slate)">
+            Para negocios que empiezan a automatizar WhatsApp.
+          </p>
+        </div>
+
+        <!-- Setup promo -->
+        <div
+          class="rounded-xl px-4 py-3 mb-5 text-sm"
+          style="background:rgba(95,184,95,0.06); border:1px solid rgba(95,184,95,0.2)"
+        >
+          <p class="font-medium mb-1 text-slate-500 dark:text-slate-400">Setup único</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <del class="text-sm" style="color:var(--color-slate)">
+              $<span class="price-val" data-mxn="2,999" data-usd="179">2,999</span>
+              <span class="currency-label">MXN</span>
+            </del>
+            <span class="font-bold text-sm" style="color:var(--color-green)">
+              $<span class="price-val" data-mxn="1,499" data-usd="89">1,499</span>
+              <span class="currency-label">MXN</span>
+            </span>
+            <span
+              class="text-[10px] font-bold px-2 py-0.5 rounded-full"
+              class="bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400"
+            >
+              -50% Fundadores
+            </span>
+          </div>
+        </div>
+
+        <!-- Monthly price -->
+        <div class="flex items-baseline gap-1.5 mb-6">
+          <span class="text-xl font-bold" style="color:var(--color-navy)">$</span>
+          <span
+            class="price-val font-extrabold tracking-tight"
+            data-mxn="1,499"
+            data-usd="89"
+            style="color:var(--color-navy); font-size:3rem; line-height:1"
+          >1,499</span>
+          <div class="flex flex-col ml-1">
+            <span class="text-sm font-semibold" style="color:var(--color-slate)">/mes</span>
+            <span class="currency-label text-[10px] font-bold" style="color:var(--color-slate)">MXN</span>
+          </div>
+        </div>
+
+        <!-- Bullets -->
+        <ul class="flex-1 space-y-3 mb-7" role="list">
+          {arranqueBullets.map(b => (
+            <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {b.text}
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href={WA_ARRANQUE}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-nx btn-outline btn-full"
+        >
+          Empezar con Arranque
+        </a>
+      </div>
+
+      <!-- ─── TARJETA 2: CRECIMIENTO (order-1 mobile, order-2 desktop) ─── -->
+      <div
+        class="plan-card plan-featured fade-in fade-d1 flex flex-col rounded-2xl p-7 relative order-1 lg:order-2 bg-white dark:bg-slate-900"
+        style="border:2px solid var(--color-purple); box-shadow:0 8px 40px rgba(139,92,246,0.22)"
+      >
+        <!-- Badge flotante -->
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <span
+            class="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-1.5 rounded-full text-white whitespace-nowrap shadow-lg"
+            style="background:var(--color-purple)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/>
+            </svg>
+            Más popular
+          </span>
+        </div>
+
+        <!-- Header -->
+        <div class="mb-6 mt-3">
+          <h3 class="text-xl font-extrabold mb-1" style="color:var(--color-navy)">Crecimiento</h3>
+          <p class="text-sm leading-snug" style="color:var(--color-slate)">
+            Para negocios que ya venden por WhatsApp y quieren escalar.
+          </p>
+        </div>
+
+        <!-- Setup promo -->
+        <div
+          class="rounded-xl px-4 py-3 mb-5 text-sm"
+          style="background:rgba(95,184,95,0.06); border:1px solid rgba(95,184,95,0.2)"
+        >
+          <p class="font-medium mb-1 text-slate-500 dark:text-slate-400">Setup único</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <del class="text-sm" style="color:var(--color-slate)">
+              $<span class="price-val" data-mxn="4,999" data-usd="299">4,999</span>
+              <span class="currency-label">MXN</span>
+            </del>
+            <span class="font-bold text-sm" style="color:var(--color-green)">
+              $<span class="price-val" data-mxn="2,499" data-usd="149">2,499</span>
+              <span class="currency-label">MXN</span>
+            </span>
+            <span
+              class="text-[10px] font-bold px-2 py-0.5 rounded-full"
+              class="bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400"
+            >
+              -50% Fundadores
+            </span>
+          </div>
+        </div>
+
+        <!-- Monthly price -->
+        <div class="flex items-baseline gap-1.5 mb-6">
+          <span class="text-xl font-bold" style="color:var(--color-navy)">$</span>
+          <span
+            class="price-val font-extrabold tracking-tight"
+            data-mxn="2,499"
+            data-usd="149"
+            style="color:var(--color-navy); font-size:3rem; line-height:1"
+          >2,499</span>
+          <div class="flex flex-col ml-1">
+            <span class="text-sm font-semibold" style="color:var(--color-slate)">/mes</span>
+            <span class="currency-label text-[10px] font-bold" style="color:var(--color-slate)">MXN</span>
+          </div>
+        </div>
+
+        <!-- Bullets -->
+        <ul class="flex-1 space-y-3 mb-7" role="list">
+          {crecimientoBullets.map(b => (
+            <li class={`flex items-start gap-2.5 text-sm ${b.inherit ? 'font-semibold pt-1 text-navy dark:text-slate-100' : 'text-slate-600 dark:text-slate-300'}`}>
+              {b.inherit ? (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" style="color:var(--color-purple)">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              )}
+              {b.text}
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href={WA_CRECIMIENTO}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-nx btn-secondary btn-full"
+        >
+          Elegir Crecimiento
+        </a>
+      </div>
+
+      <!-- ─── TARJETA 3: ENTERPRISE (order-3 both) ─── -->
+      <div
+        class="plan-card fade-in fade-d3 flex flex-col rounded-2xl p-7 order-3 bg-white dark:bg-[#1a2535]"
+        style="border:1.5px solid rgba(168,181,196,0.3)"
+      >
+        <!-- Header -->
+        <div class="mb-6">
+          <h3 class="text-xl font-extrabold mb-1" style="color:var(--color-navy)">Enterprise</h3>
+          <p class="text-sm leading-snug" style="color:var(--color-slate)">
+            Para empresas con flujos complejos e integraciones propias.
+          </p>
+        </div>
+
+        <!-- Custom price (no toggle) -->
+        <div class="mb-6">
+          <p
+            class="font-extrabold tracking-tight leading-none mb-1"
+            style="color:var(--color-navy); font-size:3rem"
+          >
+            A medida
+          </p>
+          <p class="text-sm font-medium" style="color:var(--color-slate)">Cotización personalizada</p>
+        </div>
+
+        <!-- Bullets -->
+        <ul class="flex-1 space-y-3 mb-7" role="list">
+          {enterpriseBullets.map(b => (
+            <li class={`flex items-start gap-2.5 text-sm ${b.inherit ? 'font-semibold pt-1 text-navy dark:text-slate-100' : 'text-slate-600 dark:text-slate-300'}`}>
+              {b.inherit ? (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" style="color:var(--color-purple)">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              )}
+              {b.text}
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href={WA_ENTERPRISE}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-nx btn-outline btn-full"
+        >
+          Cotizar Enterprise
+        </a>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- ── Guarantee banner ── -->
+    <div class="max-w-3xl mx-auto mt-12 fade-in">
+      <div
+        class="rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+        style="background:rgba(95,184,95,0.07); border:1.5px solid rgba(95,184,95,0.25)"
+      >
+        <!-- Shield icon -->
+        <div
+          class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+          style="background:rgba(95,184,95,0.12)"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="text-lg font-extrabold mb-1" style="color:var(--color-navy)">Garantía de 14 días</h4>
+          <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Si en los primeros 14 días no estás satisfecho con tu chatbot, te devolvemos
+            el 100% del setup. Sin preguntas, sin letras chiquitas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Trust signals ── -->
+    <div class="mt-8 fade-in">
+      <ul class="flex flex-wrap justify-center gap-x-8 gap-y-3" role="list">
+        {trustSignals.map(t => (
+          <li class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            {t}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- ── Fine print ── -->
+    <p class="text-center mt-6 text-xs" style="color:var(--color-slate)">
+      Precios sujetos a IVA. Conversión USD referencial — el tipo de cambio se fija
+      en pesos mexicanos al momento de contratar.
+    </p>
+
+  </div>
+</section>
+
+<style>
+  /* Non-featured cards: lift on hover */
+  .plan-card:not(.plan-featured):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(37, 53, 69, 0.12);
+  }
+  :global(.dark) .plan-card:not(.plan-featured):hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Featured card: always elevated on desktop */
+  @media (min-width: 1024px) {
+    .plan-featured {
+      transform: scale(1.05);
+    }
+    .plan-featured:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 16px 56px rgba(139, 92, 246, 0.30);
+    }
+  }
+
+  .plan-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Price amount transition */
+  .price-val {
+    transition: opacity 0.15s ease;
+  }
+  .price-val.updating {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  const btnMxn  = document.getElementById('btn-mxn')!;
+  const btnUsd  = document.getElementById('btn-usd')!;
+  const priceVals    = document.querySelectorAll<HTMLElement>('.price-val');
+  const currencyLabels = document.querySelectorAll<HTMLElement>('.currency-label');
+
+  let isMXN = true;
+
+  function updatePrices(mxn: boolean) {
+    /* Fade out */
+    priceVals.forEach(el => el.classList.add('updating'));
+
+    setTimeout(() => {
+      priceVals.forEach(el => {
+        el.textContent = mxn
+          ? (el.dataset.mxn ?? el.textContent)
+          : (el.dataset.usd ?? el.textContent);
+      });
+      currencyLabels.forEach(el => {
+        el.textContent = mxn ? 'MXN' : 'USD';
+      });
+      /* Fade in */
+      priceVals.forEach(el => el.classList.remove('updating'));
+    }, 150);
+  }
+
+  function setActive(mxn: boolean) {
+    isMXN = mxn;
+
+    btnMxn.style.background  = mxn ? 'var(--color-purple)' : 'transparent';
+    btnMxn.style.color        = mxn ? '#fff' : 'var(--color-slate)';
+    btnMxn.setAttribute('aria-pressed', String(mxn));
+
+    btnUsd.style.background   = mxn ? 'transparent' : 'var(--color-purple)';
+    btnUsd.style.color        = mxn ? 'var(--color-slate)' : '#fff';
+    btnUsd.setAttribute('aria-pressed', String(!mxn));
+
+    updatePrices(mxn);
+  }
+
+  btnMxn.addEventListener('click', () => { if (!isMXN) setActive(true);  });
+  btnUsd.addEventListener('click', () => { if (isMXN)  setActive(false); });
+</script>

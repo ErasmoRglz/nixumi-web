@@ -1,0 +1,271 @@
+/* ============================================================
+   AURORA PRISMA GLOBAL — Fondo animado unificado para Nixumi
+   CSS puro — importado directo en index.astro para que Vite
+   lo incluya sin que Tailwind v4 lo escanee o purgue.
+   ============================================================ */
+
+/* Contenedor fijo al viewport (fondo permanente, detrás de todo) */
+.aurora-global {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora-global .ap-beam {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* BEAM 1 — Purple izquierda */
+.aurora-global .ap-beam-1 {
+  top: -10%;
+  left: 8%;
+  width: 25%;
+  height: 120%;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(167, 139, 250, 0.40) 30%,
+    rgba(196, 181, 253, 0.22) 70%,
+    transparent 100%);
+  filter: blur(55px);
+  animation: apFlow1 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* BEAM 2 — Lavender centro */
+.aurora-global .ap-beam-2 {
+  top: -15%;
+  left: 38%;
+  width: 22%;
+  height: 125%;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(196, 181, 253, 0.50) 25%,
+    rgba(221, 214, 254, 0.30) 60%,
+    transparent 100%);
+  filter: blur(50px);
+  animation: apFlow2 16s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* BEAM 3 — Green derecha */
+.aurora-global .ap-beam-3 {
+  top: -10%;
+  right: 10%;
+  width: 28%;
+  height: 120%;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(52, 211, 153, 0.35) 30%,
+    rgba(110, 231, 183, 0.18) 70%,
+    transparent 100%);
+  filter: blur(60px);
+  animation: apFlow3 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* ============================================================
+   DARK MODE — Más saturación sobre fondo oscuro
+   .dark está en <html> cuando el toggle está en dark
+   ============================================================ */
+
+.dark .aurora-global .ap-beam-1 {
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.50) 30%,
+    rgba(139, 92, 246, 0.25) 70%,
+    transparent 100%);
+  filter: blur(45px);
+}
+
+.dark .aurora-global .ap-beam-2 {
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(167, 139, 250, 0.60) 25%,
+    rgba(196, 181, 253, 0.30) 60%,
+    transparent 100%);
+  filter: blur(40px);
+}
+
+.dark .aurora-global .ap-beam-3 {
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.35) 30%,
+    rgba(16, 185, 129, 0.15) 70%,
+    transparent 100%);
+  filter: blur(50px);
+}
+
+/* ============================================================
+   INTENSIDADES POR SECCIÓN
+   Cada sección pone un overlay semitransparente encima del
+   aurora global (position: fixed z-0). El contenido de las
+   secciones se posiciona con z-index mayor.
+   ============================================================ */
+
+/* Hero y CTA Final — aurora 100% visible, sin fondo propio */
+.aurora-showcase {
+  background: transparent !important;
+  position: relative;
+}
+
+/* Secciones intermedias — aurora visible al ~40% */
+.aurora-medium {
+  background: rgba(245, 247, 248, 0.60) !important;
+  position: relative;
+}
+.dark .aurora-medium {
+  background: rgba(15, 20, 25, 0.70) !important;
+}
+
+/* Secciones densas (Precios, FAQ) — aurora apenas visible ~15% */
+.aurora-subtle {
+  background: rgba(245, 247, 248, 0.85) !important;
+  position: relative;
+}
+.dark .aurora-subtle {
+  background: rgba(15, 20, 25, 0.88) !important;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes apFlow1 {
+  0%, 100% {
+    transform: translateX(0) skewX(-12deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateX(-40px) skewX(-12deg);
+    opacity: 1;
+  }
+}
+
+@keyframes apFlow2 {
+  0%, 100% {
+    transform: translateX(0) skewX(-8deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50px) skewX(-8deg);
+    opacity: 0.75;
+  }
+}
+
+@keyframes apFlow3 {
+  0%, 100% {
+    transform: translateX(0) skewX(-14deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-30px) skewX(-14deg);
+    opacity: 1;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-global .ap-beam-1,
+  .aurora-global .ap-beam-2,
+  .aurora-global .ap-beam-3 {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   SISTEMA DE BOTONES NIXUMI — btn-nx
+   ============================================================ */
+
+.btn-nx {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              background-color 0.2s ease, border-color 0.2s ease,
+              color 0.2s ease;
+}
+
+.btn-nx:hover  { transform: scale(1.04); }
+.btn-nx:active { transform: scale(1.01); }
+
+/* ── Primary (verde WhatsApp) ── */
+.btn-nx.btn-primary {
+  background-color: var(--color-green);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(95,184,95,0.25);
+}
+.btn-nx.btn-primary:hover {
+  box-shadow: 0 8px 28px rgba(95,184,95,0.38), 0 4px 12px rgba(95,184,95,0.20);
+}
+
+/* ── Secondary (purple) ── */
+.btn-nx.btn-secondary {
+  background-color: var(--color-purple);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(139,92,246,0.25);
+}
+.btn-nx.btn-secondary:hover {
+  box-shadow: 0 8px 28px rgba(139,92,246,0.38), 0 4px 12px rgba(139,92,246,0.20);
+}
+
+/* ── Outline ── */
+.btn-nx.btn-outline {
+  background-color: #fff;
+  color: var(--color-navy);
+  border-color: rgba(37,53,69,0.20);
+}
+.btn-nx.btn-outline:hover {
+  color: var(--color-purple);
+  border-color: var(--color-purple);
+  box-shadow: 0 4px 16px rgba(139,92,246,0.15);
+}
+.dark .btn-nx.btn-outline {
+  background-color: transparent;
+  color: #e2e8f0;
+  border-color: rgba(148,163,184,0.40);
+}
+.dark .btn-nx.btn-outline:hover {
+  color: var(--color-purple);
+  border-color: var(--color-purple);
+}
+
+/* ── Tamaños ── */
+.btn-nx.btn-sm {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.625rem;
+}
+.btn-nx.btn-xl {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.25rem;
+  border-radius: 9999px;
+  font-weight: 800;
+}
+
+/* ── Ancho completo ── */
+.btn-nx.btn-full {
+  width: 100%;
+}
+
+/* ── Micro-animaciones de flechas ── */
+.btn-nx .btn-arrow           { transition: transform 0.2s ease; }
+.btn-nx:hover .btn-arrow     { transform: translateX(4px); }
+
+.btn-nx .btn-arrow-down      { transition: transform 0.2s ease; }
+.btn-nx:hover .btn-arrow-down { transform: translateY(4px); }
