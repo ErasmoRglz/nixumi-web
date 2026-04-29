@@ -11,6 +11,10 @@ const navLinks = [
 const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20automatizar%20mi%20negocio';
 ---
 
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-purple focus:text-white focus:rounded-lg focus:font-medium focus:shadow-lg focus:outline-none">
+  Saltar al contenido principal
+</a>
+
 <header
   id="site-header"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
@@ -20,11 +24,11 @@ const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20automatizar%20mi
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0 justify-self-start">
-        <img src="/nixumi-logo.png" alt="Nixumi" class="h-16 w-auto" />
+        <img src="/nixumi-logo.webp" alt="Nixumi - Automatización de WhatsApp con IA" width="160" height="64" class="h-16 w-auto" />
       </a>
 
       <!-- Nav · desktop -->
-      <nav class="hidden lg:flex items-center gap-8">
+      <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Navegación principal">
         {navLinks.map(l => (
           <a
             href={l.href}
@@ -61,6 +65,7 @@ const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20automatizar%20mi
         href={WA}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chatear con Nixumi por WhatsApp"
         class="hidden lg:inline-flex btn-nx btn-primary btn-sm"
       >
         <!-- WhatsApp fill icon -->
@@ -76,6 +81,7 @@ const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20automatizar%20mi
         class="lg:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-lg hover:bg-slate/20 transition-colors"
         aria-label="Abrir menú"
         aria-expanded="false"
+        aria-controls="mobile-menu"
       >
         <span id="bar1" class="block h-0.5 w-5 mx-auto bg-navy rounded-full transition-all duration-300"></span>
         <span id="bar2" class="block h-0.5 w-5 mx-auto bg-navy rounded-full transition-all duration-300"></span>
@@ -103,6 +109,7 @@ const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20automatizar%20mi
         href={WA}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chatear con Nixumi por WhatsApp"
         class="btn-nx btn-primary btn-full mt-3"
       >
         Hablar con Nixumi
@@ -111,50 +118,4 @@ const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20automatizar%20mi
   </div>
 </header>
 
-<script>
-  const header  = document.getElementById('site-header')!;
-  const btn     = document.getElementById('menu-btn')!;
-  const mMenu   = document.getElementById('mobile-menu')!;
-  const bar1    = document.getElementById('bar1')!;
-  const bar2    = document.getElementById('bar2')!;
-  const bar3    = document.getElementById('bar3')!;
-  let menuOpen  = false;
-
-  // Sticky blur on scroll
-  const onScroll = () => {
-    if (window.scrollY > 12) {
-      header.classList.add('header-scrolled');
-    } else {
-      header.classList.remove('header-scrolled');
-    }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Hamburger toggle
-  const closeMenu = () => {
-    menuOpen = false;
-    mMenu.classList.add('hidden');
-    btn.setAttribute('aria-expanded', 'false');
-    bar1.style.transform = '';
-    bar2.style.opacity   = '';
-    bar3.style.transform = '';
-  };
-
-  btn.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-    mMenu.classList.toggle('hidden', !menuOpen);
-    btn.setAttribute('aria-expanded', String(menuOpen));
-    if (menuOpen) {
-      bar1.style.transform = 'translateY(6px) rotate(45deg)';
-      bar2.style.opacity   = '0';
-      bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
-    } else {
-      closeMenu();
-    }
-  });
-
-  document.querySelectorAll('.mobile-link').forEach(a =>
-    a.addEventListener('click', closeMenu)
-  );
-</script>
+<script src="/src/scripts/header.ts"></script>

@@ -178,6 +178,18 @@
   }
 }
 
+/* ── Mobile: reducir a 2 beams y eliminar will-change ── */
+@media (max-width: 768px) {
+  .aurora-global .ap-beam-2 {
+    display: none;
+  }
+
+  .aurora-global .ap-beam-1,
+  .aurora-global .ap-beam-3 {
+    will-change: auto;
+  }
+}
+
 /* ============================================================
    SISTEMA DE BOTONES NIXUMI — btn-nx
    ============================================================ */
