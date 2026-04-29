@@ -50,35 +50,16 @@ const steps = [
       </p>
     </div>
 
-    <!-- Steps grid + connector line -->
+    <!-- Steps grid -->
     <div class="relative">
-
-      <!--
-        Dashed connector line (desktop only).
-        Sits at the vertical midpoint of the text-6xl numbers (~2.25rem from top).
-        z-0 so the number backgrounds (bg-white) occlude it.
-      -->
-      <div
-        class="hidden lg:block absolute pointer-events-none"
-        style="
-          top: 2.25rem;
-          left: calc(100% / 8);
-          right: calc(100% / 8);
-          height: 0;
-          border-top: 1.5px dashed rgba(168,181,196,0.55);
-          z-index: 0;
-        "
-        aria-hidden="true"
-      ></div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 relative">
         {steps.map((step, i) => (
-          <div class={`fade-in fade-d${i + 1} relative`} style="z-index:1">
+          <div class={`fade-in fade-d${i + 1} relative`}>
 
-            <!-- Number: inline bg-white block cuts the dashed line visually -->
+            <!-- Number -->
             <div class="mb-5">
               <span
-                class="inline-block text-6xl font-bold tracking-tight leading-none bg-white dark:bg-[#1a2535] pr-3"
+                class="inline-block text-6xl font-bold tracking-tight leading-none"
                 style="color:var(--color-purple)"
               >
                 {step.num}

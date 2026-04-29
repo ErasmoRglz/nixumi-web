@@ -17,15 +17,13 @@ const navLinks = [
 
       <!-- COL 1 — Marca (col-span-2 en desktop) -->
       <div class="sm:col-span-2 lg:col-span-2">
-        <!-- Logo: invertido a blanco con filtro CSS -->
         <a href="/" class="inline-block mb-4">
           <img
-            src="/nixumi-logo.webp"
+            src="/nixumi-logo-white-text.webp"
             alt="Nixumi - Automatización de WhatsApp con IA"
             width="160"
             height="64"
-            class="h-24 w-auto"
-            style="filter: brightness(0) invert(1)"
+            class="h-24 w-auto object-contain"
           />
         </a>
 
@@ -119,9 +117,27 @@ const navLinks = [
     <div class="my-10 border-t" style="border-color:rgba(168,181,196,0.12)"></div>
 
     <!-- ── Fila inferior ── -->
-    <div class="flex flex-row items-center justify-between w-full">
-      <p class="text-sm" style="color:rgba(168,181,196,0.5)">
-        © 2026 Nixumi. Todos los derechos reservados.
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 w-full">
+      <p class="text-sm flex flex-wrap items-center gap-x-2 gap-y-1" style="color:rgba(168,181,196,0.5)">
+        <span>© 2026 Nixumi</span>
+        <span aria-hidden="true">·</span>
+        <a
+          href="/aviso-de-privacidad"
+          class="transition-colors duration-200"
+          onmouseover="this.style.color='var(--color-green)'"
+          onmouseout="this.style.color='rgba(168,181,196,0.5)'"
+        >
+          Aviso de Privacidad
+        </a>
+        <span aria-hidden="true">·</span>
+        <a
+          href="/terminos-y-condiciones"
+          class="transition-colors duration-200"
+          onmouseover="this.style.color='var(--color-green)'"
+          onmouseout="this.style.color='rgba(168,181,196,0.5)'"
+        >
+          Términos y Condiciones
+        </a>
       </p>
       <p class="text-sm" style="color:rgba(168,181,196,0.5)">
         Construido con <span style="color:var(--color-green)">♥</span> en Puebla, México.
