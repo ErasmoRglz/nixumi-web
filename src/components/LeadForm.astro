@@ -206,15 +206,13 @@ if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
         throw new Error('Ya existe un registro con estos datos.');
       } else if (response.status === 400) {
         // Error en datos de entrada
-        const errorData = await response.json();
         throw new Error('Datos inválidos. Verifica la información capturada.');
       } else if (response.status === 401 || response.status === 403) {
         // Error de autenticación
         throw new Error('Error de autenticación. Verifica la configuración del sistema.');
       } else {
         // Otros errores
-        const errorData = await response.json();
-        throw new Error(errorData.message || `Error del servidor (código ${response.status}).`);
+        throw new Error('Error del servidor. Inténtalo de nuevo más tarde.');
       }
     } catch (error: any) {
       console.error('Error completo:', error);
