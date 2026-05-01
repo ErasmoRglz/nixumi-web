@@ -185,17 +185,9 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
         body: JSON.stringify(data)
       });
 
-      // Verificar que la respuesta sea JSON (no HTML de error de Vercel)
-      const contentType = response.headers.get('content-type') || '';
-      if (!contentType.includes('application/json') && !contentType.includes('text/plain')) {
-        console.error('Respuesta inesperada del servidor. Content-Type:', contentType);
-        console.error('Status:', response.status);
-        throw new Error('El servidor no está disponible en este momento. Inténtalo de nuevo más tarde.');
-      }
-
-      // Manejar diferentes códigos de respuesta
-      if (response.status === 201 || response.status === 200) {
-        // Éxito: ocultar formulario y título
+      // Verificar primero el código de estado HTTP
+      if (response.status === 201 || response.status === 200 || response.status === 204) {
+        // Éxito: los datos se guardaron correctamente
         formTitle.classList.add('hidden');
         formSubtitle.classList.add('hidden');
         form.classList.add('hidden');
@@ -203,16 +195,17 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
         // Mostrar mensaje de éxito
         successContent.classList.remove('hidden');
       } else if (response.status === 409) {
-        // Conflicte (datos duplicados)
         throw new Error('Ya existe un registro con estos datos.');
       } else if (response.status === 400) {
-        // Error en datos de entrada
         throw new Error('Datos inválidos. Verifica la información capturada.');
       } else if (response.status === 401 || response.status === 403) {
-        // Error de autenticación
         throw new Error('Error de autenticación. Verifica la configuración del sistema.');
       } else {
-        // Otros errores
+        // Detectar respuestas HTML (páginas de error de Vercel, Cloudflare, etc.)
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('text/html')) {
+          throw new Error('El servidor no está disponible en este momento. Inténtalo de nuevo más tarde.');
+        }
         throw new Error('Error del servidor. Inténtalo de nuevo más tarde.');
       }
     } catch (error: any) {
