@@ -1,0 +1,272 @@
+---
+---
+
+<div id="lead-form-section" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+  <div class="max-w-xl mx-auto px-4 md:px-6">
+    <div class="text-center mb-10">
+      <h2 id="form-title" class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-navy)">
+        ¿Listo para automatizar tu negocio?
+      </h2>
+      <p id="form-subtitle" class="text-lg text-slate-600 dark:text-slate-300">
+        Déjanos tus datos y nos pondremos en contacto contigo en menos de 24 horas.
+      </p>
+    </div>
+
+    <form id="lead-form" class="space-y-5">
+      <div>
+        <label for="nombre" class="block text-base font-medium mb-2" style="color: var(--color-navy)">
+          Nombre completo
+        </label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          minlength="3"
+          maxlength="100"
+          placeholder="Ej. Juan Pérez"
+          class="w-full px-4 py-4 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-navy dark:text-white text-base focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+        />
+      </div>
+
+      <div>
+        <label for="whatsapp" class="block text-base font-medium mb-2" style="color: var(--color-navy)">
+          Número de WhatsApp
+        </label>
+        <div class="flex rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus-within:ring-2 focus-within:ring-purple focus-within:border-transparent transition-all overflow-hidden">
+          <span class="flex items-center px-4 py-4 text-base font-medium select-none whitespace-nowrap shrink-0 bg-slate-100 dark:bg-slate-700" style="color: var(--color-navy)">+52</span>
+          <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            required
+            placeholder="236 112 5488"
+            class="w-full px-4 py-4 text-navy dark:text-white text-base bg-transparent border-none outline-none"
+          />
+        </div>
+        <p class="text-sm text-slate-500 mt-1">Ingresa los 10 dígitos de tu número. Ej: 236 112 5488</p>
+      </div>
+
+      <div>
+        <label for="negocio" class="block text-base font-medium mb-2" style="color: var(--color-navy)">
+          Nombre de tu negocio
+        </label>
+        <input
+          type="text"
+          id="negocio"
+          name="negocio"
+          required
+          minlength="2"
+          maxlength="100"
+          placeholder="Ej. Inmobiliaria El Valle"
+          class="w-full px-4 py-4 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-navy dark:text-white text-base focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+        />
+      </div>
+
+      <button
+        type="submit"
+        id="submit-btn"
+        class="w-full btn-nx btn-primary btn-lg flex items-center justify-center gap-2"
+      >
+        <span>Enviar datos</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </button>
+    </form>
+
+    <div id="success-content" class="hidden text-center py-8">
+      <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green/10 flex items-center justify-center">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" stroke="var(--color-green)" stroke-width="2"/>
+          <path class="checkmark-check" fill="none" stroke="var(--color-green)" stroke-width="2" d="M14 27l7 7 16-16"/>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold mb-3" style="color: var(--color-navy)">¡Gracias por confiar en Nixumi! 🎉</h3>
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+        Hemos recibido tus datos correctamente. Uno de nuestros asesores se pondrá en contacto contigo en menos de 24 horas para conocer tu proyecto y ofrecerte la mejor solución.
+      </p>
+      <a href="/" class="inline-block text-sm font-medium px-5 py-2.5 rounded-lg border-2 transition-colors hover:opacity-80" style="border-color: var(--color-purple); color: var(--color-purple);">
+        ← Volver al inicio
+      </a>
+    </div>
+
+    <div id="error-content" class="hidden text-center py-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+      <p id="error-message" class="text-red-600 dark:text-red-400 font-medium"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('lead-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successContent = document.getElementById('success-content') as HTMLDivElement;
+  const errorContent = document.getElementById('error-content') as HTMLDivElement;
+  const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
+  const formTitle = document.getElementById('form-title') as HTMLHeadingElement;
+  const formSubtitle = document.getElementById('form-subtitle') as HTMLParagraphElement;
+
+// Configuración de Supabase desde variables de entorno
+const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+
+// Validar que las variables existan
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.error('ERROR: Faltan variables de entorno de Supabase');
+  console.error('PUBLIC_SUPABASE_URL:', SUPABASE_URL);
+  console.error('PUBLIC_SUPABASE_ANON_KEY existe:', !!SUPABASE_ANON_KEY);
+}
+
+// Máscara de formato para el campo WhatsApp (formato: 123 456 7890)
+  const whatsappInput = document.getElementById('whatsapp') as HTMLInputElement;
+  whatsappInput.addEventListener('input', () => {
+    let digits = whatsappInput.value.replace(/[^0-9]/g, '');
+    // Limitar a 10 dígitos
+    digits = digits.slice(0, 10);
+    // Formato: 3-3-4 (XXX XXX XXXX)
+    let formatted = '';
+    for (let i = 0; i < digits.length; i++) {
+      if (i === 3 || i === 6) formatted += ' ';
+      formatted += digits[i];
+    }
+    whatsappInput.value = formatted;
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Limpiar errores previos
+    errorContent.classList.add('hidden');
+    errorMessage.textContent = '';
+    
+    const formData = new FormData(form);
+    const nombre = (formData.get('nombre')?.toString() || '').trim();
+    const whatsapp = (formData.get('whatsapp')?.toString() || '').trim();
+    const negocio = (formData.get('negocio')?.toString() || '').trim();
+
+    // Validaciones básicas
+    if (!nombre || nombre.length < 3) {
+      errorMessage.textContent = 'El nombre debe tener al menos 3 caracteres.';
+      errorContent.classList.remove('hidden');
+      return;
+    }
+
+    // Limpiar el número de teléfono (solo dígitos) y anteponer 52
+    const whatsappLimpio = '52' + whatsapp.replace(/[^0-9]/g, '');
+    if (whatsappLimpio.length !== 12) {
+      errorMessage.textContent = 'El número de WhatsApp debe tener 10 dígitos después del +52.';
+      errorContent.classList.remove('hidden');
+      return;
+    }
+
+    if (!negocio || negocio.length < 2) {
+      errorMessage.textContent = 'El nombre del negocio debe tener al menos 2 caracteres.';
+      errorContent.classList.remove('hidden');
+      return;
+    }
+
+    const data = {
+      nombre_completo: nombre,
+      whatsapp: whatsappLimpio,
+      nombre_negocio: negocio,
+    };
+
+    try {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Enviando...</span>
+      `;
+
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(data)
+      });
+
+      // Manejar diferentes códigos de respuesta
+      if (response.status === 201 || response.status === 200) {
+        // Éxito: ocultar formulario y título
+        formTitle.classList.add('hidden');
+        formSubtitle.classList.add('hidden');
+        form.classList.add('hidden');
+        
+        // Mostrar mensaje de éxito
+        successContent.classList.remove('hidden');
+      } else if (response.status === 409) {
+        // Conflicte (datos duplicados)
+        throw new Error('Ya existe un registro con estos datos.');
+      } else if (response.status === 400) {
+        // Error en datos de entrada
+        const errorData = await response.json();
+        throw new Error('Datos inválidos. Verifica la información capturada.');
+      } else if (response.status === 401 || response.status === 403) {
+        // Error de autenticación
+        throw new Error('Error de autenticación. Verifica la configuración del sistema.');
+      } else {
+        // Otros errores
+        const errorData = await response.json();
+        throw new Error(errorData.message || `Error del servidor (código ${response.status}).`);
+      }
+    } catch (error: any) {
+      console.error('Error completo:', error);
+      
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <span>Enviar datos</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      `;
+      
+      // Mostrar mensaje de error en español
+      let mensajeError = 'Hubo un error al enviar los datos. Inténtalo de nuevo.';
+      
+      if (error.message) {
+        mensajeError = error.message;
+      }
+      
+      if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+        mensajeError = 'Error de conexión. Verifica tu conexión a internet e inténtalo de nuevo.';
+      }
+      
+      errorMessage.textContent = mensajeError;
+      errorContent.classList.remove('hidden');
+    }
+  });
+</script>
+
+<style>
+  #lead-form-section {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(95, 184, 95, 0.05) 100%);
+  }
+
+  /* Animación del checkmark */
+  .checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+  .checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 2;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+  }
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

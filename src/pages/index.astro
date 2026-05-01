@@ -1,0 +1,116 @@
+---
+import '../styles/global.css';
+import '../styles/aurora.css';
+import Header          from '../components/Header.astro';
+import Hero             from '../components/Hero.astro';
+import ProblemSolution  from '../components/ProblemSolution.astro';
+import Services         from '../components/Services.astro';
+import Cases            from '../components/Cases.astro';
+import Process          from '../components/Process.astro';
+import Pricing          from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import LeadForm from '../components/LeadForm.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer           from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/jpeg" href="/logo-white-bg.jpg" />
+  <link rel="apple-touch-icon" href="/logo-white-bg.jpg" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- SEO -->
+  <title>Nixumi — Automatización de WhatsApp con IA para tu negocio</title>
+  <meta name="description" content="Construimos chatbots inteligentes con IA para WhatsApp que atienden clientes 24/7, califican leads y cierran ventas. Soluciones a medida para PyMEs mexicanas." />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.nixumi.lat/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nixumi — Automatización de WhatsApp con IA" />
+  <meta property="og:description" content="Chatbots de WhatsApp con IA para PyMEs. Atención 24/7, calificación de leads y ventas automatizadas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.nixumi.lat/" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:image" content="https://www.nixumi.lat/nixumi-logo.webp" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Nixumi — Automatización de WhatsApp con IA" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nixumi — Automatización de WhatsApp con IA" />
+  <meta name="twitter:description" content="Chatbots de WhatsApp con IA para PyMEs. Atención 24/7, calificación de leads y ventas automatizadas." />
+  <meta name="twitter:image" content="https://www.nixumi.lat/nixumi-logo.webp" />
+  <meta name="twitter:image:alt" content="Nixumi — Automatización de WhatsApp con IA" />
+
+
+  <!-- Anti-FOUC: aplica .dark antes del primer render -->
+  <script is:inline>
+    (function () {
+      const stored = localStorage.getItem('nixumi-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="antialiased">
+
+  <!-- Aurora global — fondo animado fijo detrás de toda la página -->
+  <div class="aurora-global" aria-hidden="true">
+    <div class="ap-beam ap-beam-1"></div>
+    <div class="ap-beam ap-beam-2"></div>
+    <div class="ap-beam ap-beam-3"></div>
+  </div>
+
+  <Header />
+  <main id="main-content" class="relative" style="z-index:1">
+    <Hero />
+    <ProblemSolution />
+    <Services />
+    <Cases />
+    <Process />
+    <Pricing />
+<FAQ />
+<LeadForm />
+<CTAFinal />
+  </main>
+
+  <Footer />
+
+  <!-- Theme: detección de sistema + toggle + persistencia -->
+  <script>
+    import { initTheme } from '../scripts/theme';
+    initTheme();
+  </script>
+
+  <!-- Intersection Observer for fade-in animations -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

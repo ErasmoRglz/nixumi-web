@@ -1,0 +1,123 @@
+---
+const WA = 'https://wa.me/522361125488?text=Hola%2C%20quiero%20automatizar%20mi%20negocio';
+
+const trustItems = [
+  {
+    label: 'Activo en 7-15 días',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />`,
+  },
+  {
+    label: '14 días de garantía',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />`,
+  },
+  {
+    label: 'Hecho en Puebla, México',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />`,
+  },
+  {
+    label: 'Datos encriptados',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />`,
+  },
+] as const;
+---
+
+<section
+  id="contacto"
+  class="aurora-showcase dark relative py-28 md:py-36"
+  style="background:rgba(10,10,22,0.88)"
+>
+
+  <!-- Background overlay -->
+  <div class="absolute inset-0 z-[1]" style="background:rgba(10,10,22,0.39)"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 md:px-6 text-center">
+    
+    <!-- BLOQUE 1: Headline -->
+    <div class="fade-in">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight text-white mb-5">
+        Tu siguiente cliente te está<br class="hidden sm:block" />
+        escribiendo ahora mismo.
+      </h2>
+      <p class="mt-7 text-xl md:text-2xl font-light leading-relaxed text-white/85">
+        ¿Lo vas a atender o lo vas a perder?
+      </p>
+    </div>
+
+    <!-- BLOQUE 2: CTA buttons -->
+    <div class="mt-14 fade-in fade-d2">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href={WA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-btn btn-nx btn-primary btn-xl w-full sm:w-auto"
+          style="gap:0.75rem"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Hablar con Nixumi ahora
+        </a>
+        <a
+          href="/reserva-cita"
+          class="btn-nx btn-outline btn-xl w-full sm:w-auto"
+          style="border-color:rgba(255,255,255,0.55); color:#d4d8df; box-shadow:0 0 0 1px rgba(255,255,255,0.12), 0 4px 16px rgba(0,0,0,0.25);"
+        >
+          Reserva demo
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-center" style="color:rgba(255,255,255,0.55)">
+        Te responde nuestro propio asistente IA al instante
+        <span class="mx-1.5" aria-hidden="true">·</span>
+        L-V atención humana 8am–7pm CST
+      </p>
+    </div>
+
+    <!-- BLOQUE 3: Trust reminder -->
+    <ul
+      class="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-5 fade-in fade-d3"
+      role="list"
+    >
+      {trustItems.map(item => (
+        <li class="flex items-center gap-2.5">
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+            style="background:rgba(255,255,255,0.10)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="white"
+              aria-hidden="true"
+              set:html={item.icon}
+            />
+          </div>
+          <span class="text-sm font-medium" style="color:rgba(255,255,255,0.70)">
+            {item.label}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</section>
+
+<style>
+  .cta-btn:hover {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 44px rgba(95, 184, 95, 0.28),
+      0 12px 36px rgba(95, 184, 95, 0.20);
+  }
+  .cta-btn:active {
+    transform: scale(1.02);
+  }
+</style>

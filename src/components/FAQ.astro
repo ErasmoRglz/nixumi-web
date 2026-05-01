@@ -1,0 +1,197 @@
+---
+const WA_DEMO = 'https://wa.me/5212381238389?text=Hola';
+const WA_FAQ  = 'https://wa.me/5212381238389?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Nixumi';
+
+const faqs = [
+  {
+    q: '¿En cuánto tiempo está activo mi chatbot?',
+    a: 'Entre 5 y 15 días hábiles, dependiendo de la complejidad. La mayoría de proyectos del plan Arranque los entregamos en menos de 7 días. Te mostramos avances cada 2-3 días para que veas cómo va tomando forma.',
+  },
+  {
+    q: '¿Necesito saber de tecnología para usar Nixumi?',
+    a: 'Para nada. Nosotros nos encargamos de toda la parte técnica. Tú solo nos cuentas cómo funciona tu negocio, nosotros construimos el chatbot, y tú lo operas desde tu WhatsApp normal. Sin apps nuevas, sin instalaciones.',
+  },
+  {
+    q: '¿Qué pasa si no me convence el resultado?',
+    a: 'Tienes 14 días de garantía a partir de la entrega del chatbot. Si no estás satisfecho, te devolvemos el 100% del setup. Sin preguntas, sin letras chiquitas, sin trámites largos.',
+  },
+  {
+    q: '¿Puedo atender yo a un cliente cuando el bot ya le está respondiendo?',
+    a: 'Sí. Incluimos Human Takeover desde el plan Arranque: con un comando desde tu WhatsApp pausas el bot para esa conversación específica, atiendes tú, y cuando terminas el bot se reactiva. Todos los demás clientes siguen siendo atendidos normalmente.',
+  },
+  {
+    q: '¿Mis datos y los de mis clientes están seguros?',
+    a: '100%. Usamos infraestructura encriptada (Google Cloud, Supabase) y cumplimos con la LFPDPPP (Ley Federal de Protección de Datos Personales en Posesión de los Particulares). Tus conversaciones nunca se comparten con terceros.',
+  },
+  {
+    q: '¿Con qué plataformas se integra?',
+    a: 'WhatsApp Business (vía Meta Cloud API o BSP), Google Calendar, Google Sheets, Supabase, Postgres, HubSpot, Odoo, y básicamente cualquier sistema que tenga API. Si tu negocio usa algo específico, lo evaluamos sin costo.',
+  },
+  {
+    q: '¿Puedo cambiar de plan después?',
+    a: 'Sí. Puedes subir o bajar de plan en cualquier momento. Si subes, el cambio aplica al día siguiente. Si bajas, aplica al siguiente ciclo de facturación. Nunca hay penalizaciones.',
+  },
+  {
+    q: '¿Hay contrato forzoso o permanencia?',
+    a: 'No. Planes mensuales sin permanencia. Cancelas cuando quieras. La mensualidad cubre soporte, mejoras continuas y cambios pequeños. Si cancelas, el bot se apaga al final del ciclo pagado.',
+  },
+] as const;
+---
+
+<section id="faq" class="aurora-subtle py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-12 fade-in">
+      <div
+        class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full mb-4"
+        style="background:rgba(139,92,246,0.10); color:var(--color-purple)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+        </svg>
+        Preguntas frecuentes
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" style="color:var(--color-navy)">
+        Lo que todo mundo nos pregunta antes de contratar
+      </h2>
+      <p class="text-base md:text-lg max-w-xl mx-auto text-slate-500 dark:text-slate-400">
+        Si tu pregunta no está aquí, escríbenos por WhatsApp y te respondemos en minutos.
+      </p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="max-w-3xl mx-auto space-y-3">
+
+      <!-- ── Preguntas 1–8 (del array) ── -->
+      {faqs.map((faq, i) => (
+        <details
+          class={`faq-item fade-in fade-d${(i % 6) + 1} group rounded-xl bg-white dark:bg-slate-800`}
+          style="border:1.5px solid rgba(168,181,196,0.3)"
+        >
+          <summary class="faq-summary flex items-start justify-between gap-4 p-6 cursor-pointer select-none list-none">
+            <span class="text-base md:text-lg font-semibold leading-snug pr-2" style="color:var(--color-navy)">
+              {faq.q}
+            </span>
+            <span
+              class="faq-icon flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-all duration-200"
+              style="background:rgba(139,92,246,0.10)"
+              aria-hidden="true"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="color:var(--color-purple)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </span>
+          </summary>
+          <div class="faq-body px-6 pb-6">
+            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">{faq.a}</p>
+          </div>
+        </details>
+      ))}
+
+      <!-- ── Pregunta 9: especial con highlight box ── -->
+      <details
+        class="faq-item fade-in fade-d3 group rounded-xl bg-white dark:bg-slate-800"
+        style="border:1.5px solid rgba(168,181,196,0.3)"
+      >
+        <summary class="faq-summary flex items-start justify-between gap-4 p-6 cursor-pointer select-none list-none">
+          <span class="text-base md:text-lg font-semibold leading-snug pr-2" style="color:var(--color-navy)">
+            ¿Puedo verlo funcionar antes de contratar?
+          </span>
+          <span
+            class="faq-icon flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-all duration-200"
+            style="background:rgba(139,92,246,0.10)"
+            aria-hidden="true"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="color:var(--color-purple)">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </span>
+        </summary>
+        <div class="faq-body px-6 pb-6">
+          <p class="text-base leading-relaxed mb-4 text-slate-600 dark:text-slate-300">
+            Sí, y de la mejor manera posible: el mismo WhatsApp de Nixumi es un chatbot
+            con IA. Cuando nos escribes desde cualquier botón de esta página, te responde
+            nuestro propio asistente automatizado, entrenado para entender lo que buscas,
+            agendarte una demo personalizada y pasarte al equipo humano cuando estés listo.
+            Nixumi se vende a sí mismo — literalmente.
+          </p>
+          <!-- Highlight box -->
+          <div
+            class="rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-green-50/60 dark:bg-green-950/30"
+            style="border-left:4px solid var(--color-green)"
+          >
+            <p class="text-sm font-medium" style="color:var(--color-navy)">
+              💡 Pruébalo ahora mismo — escríbenos <strong>"Hola"</strong> por WhatsApp
+            </p>
+            <a
+              href={WA_DEMO}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chatear con Nixumi por WhatsApp"
+              class="btn-nx btn-primary btn-sm"
+            >
+              Abrir WhatsApp de Nixumi
+              <svg xmlns="http://www.w3.org/2000/svg" class="btn-arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </details>
+
+    </div><!-- /accordion -->
+
+    <!-- Mini CTA -->
+    <p class="text-center mt-10 text-sm fade-in" style="color:var(--color-slate)">
+      ¿Tu pregunta no está aquí?{' '}
+      <a
+        href={WA_FAQ}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chatear con Nixumi por WhatsApp"
+        class="font-semibold transition-all duration-200 hover:underline underline-offset-2"
+        style="color:var(--color-green)"
+      >
+        Pregúntanos por WhatsApp →
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<style>
+  /* Remove default browser disclosure triangle */
+  .faq-summary::-webkit-details-marker { display: none; }
+  .faq-summary::marker                 { content: ''; }
+
+  /* Border highlight on hover */
+  .faq-item:hover {
+    border-color: rgba(139, 92, 246, 0.35) !important;
+  }
+  :global(.dark) .faq-item:hover {
+    border-color: rgba(139, 92, 246, 0.55) !important;
+  }
+
+  /* Rotate + into × when open */
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: rgba(139, 92, 246, 0.18);
+  }
+
+  /* Active state: purple left border */
+  details[open] {
+    border-color: rgba(139, 92, 246, 0.4) !important;
+    border-left-width: 3px;
+  }
+
+  /* Fade-in animation for answer */
+  .faq-body {
+    animation: faqReveal 0.22s ease-out;
+  }
+
+  @keyframes faqReveal {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,186 @@
+---
+const navLinks = [
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proceso',   label: 'Proceso'   },
+  { href: '#casos',     label: 'Casos'     },
+  { href: '#precios',   label: 'Precios'   },
+  { href: '#faq',       label: 'FAQ'       },
+  { href: '#contacto',  label: 'Contacto'  },
+];
+
+const WA = 'https://wa.me/522361125488?text=Hola%2C%20quiero%20automatizar%20mi%20negocio';
+---
+
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-purple focus:text-white focus:rounded-lg focus:font-medium focus:shadow-lg focus:outline-none">
+  Saltar al contenido principal
+</a>
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+     <div class="flex items-center justify-between h-20 md:h-24">
+
+       <!-- Logo -->
+       <a href="/" class="flex-shrink-0">
+        <img
+          src="/nixumi-logo.webp"
+          alt="Nixumi - Automatización de WhatsApp con IA"
+          width="160"
+          height="64"
+          class="h-10 sm:h-12 md:h-16 w-auto object-contain block dark:hidden"
+        />
+        <img
+          src="/nixumi-logo-white-text.webp"
+          alt="Nixumi - Automatización de WhatsApp con IA"
+          width="160"
+          height="64"
+          class="h-10 sm:h-12 md:h-16 w-auto object-contain hidden dark:block"
+        />
+      </a>
+
+      <!-- Nav · desktop -->
+      <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Navegación principal">
+        {navLinks.map(l => (
+          <a
+            href={l.href}
+            class="text-sm font-medium text-navy hover:text-purple transition-colors duration-200"
+          >
+            {l.label}
+          </a>
+        ))}
+      </nav>
+
+       <!-- CTA · desktop + Hamburger · mobile — alineados a la derecha -->
+       <div class="flex items-center gap-2">
+
+      <!-- Toggle dark/light -->
+      <button
+        type="button"
+        data-theme-toggle
+        aria-label="Cambiar tema"
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-200 hover:scale-105"
+        style="border-color:rgba(168,181,196,0.5); color:var(--color-navy)"
+      >
+        <!-- Sol: visible en light mode -->
+        <svg data-theme-icon="sun" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+        </svg>
+        <!-- Luna: visible en dark mode -->
+        <svg data-theme-icon="moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+
+      <!-- CTA · desktop -->
+      <a
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chatear con Nixumi por WhatsApp"
+        class="hidden lg:inline-flex btn-nx btn-primary btn-sm"
+      >
+        <!-- WhatsApp fill icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Hablar con Nixumi
+      </a>
+
+      <!-- Hamburger · mobile -->
+      <button
+        id="menu-btn"
+        class="lg:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-lg hover:bg-slate/20 transition-colors"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span id="bar1" class="block h-0.5 w-5 mx-auto bg-navy rounded-full transition-all duration-300"></span>
+        <span id="bar2" class="block h-0.5 w-5 mx-auto bg-navy rounded-full transition-all duration-300"></span>
+        <span id="bar3" class="block h-0.5 w-5 mx-auto bg-navy rounded-full transition-all duration-300"></span>
+      </button>
+      </div><!-- /right column -->
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden bg-white/95 dark:bg-[#0F1419]/95 backdrop-blur-md border-t border-slate/20 dark:border-slate-700"
+  >
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+      {navLinks.map(l => (
+        <a
+          href={l.href}
+          class="mobile-link text-base font-medium text-navy hover:text-purple py-3 border-b border-slate/10 transition-colors"
+        >
+          {l.label}
+        </a>
+      ))}
+      <a
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chatear con Nixumi por WhatsApp"
+        class="btn-nx btn-primary btn-full mt-3"
+      >
+        Hablar con Nixumi
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Header interactions: sticky scroll, hamburger menu, Escape key
+  const header = document.getElementById('site-header')!;
+  const btn = document.getElementById('menu-btn')!;
+  const mMenu = document.getElementById('mobile-menu')!;
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+  let menuOpen = false;
+
+  function onScroll() {
+    if (window.scrollY > 12) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function closeMenu() {
+    menuOpen = false;
+    mMenu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    bar1.style.transform = '';
+    bar2.style.opacity = '';
+    bar3.style.transform = '';
+  }
+
+  btn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mMenu.classList.toggle('hidden', !menuOpen);
+    btn.setAttribute('aria-expanded', String(menuOpen));
+    if (menuOpen) {
+      bar1.style.transform = 'translateY(6px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
+    } else {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuOpen) {
+      closeMenu();
+      btn.focus();
+    }
+  });
+
+  document.querySelectorAll('.mobile-link').forEach((a) =>
+    a.addEventListener('click', closeMenu),
+  );
+</script>

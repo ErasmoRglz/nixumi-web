@@ -1,0 +1,146 @@
+---
+// Configuración de Google Calendar
+// Para obtener tu enlace de cita:
+// 1. Ve a Google Calendar → Configuración → Configuración de citas
+// 2. Crea tu horario disponible
+// 3. Copia el enlace de tu página de citas
+const GOOGLE_CALENDAR_URL = 'https://calendar.app.google/DDciUF8vhgfGDLJm7';
+
+// Generar los próximos 3 días hábiles
+function getNextBusinessDays() {
+  const days = [];
+  const today = new Date();
+  let added = 0;
+  let current = new Date(today);
+  current.setDate(current.getDate() + 1); // Empezar desde mañana
+
+  while (added < 3) {
+    const dayOfWeek = current.getDay();
+    // 0 = Domingo, 6 = Sábado
+    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+      const date = current.toISOString().split('T')[0];
+      days.push({
+        date: date,
+        display: current.toLocaleDateString('es-MX', { 
+          weekday: 'long', 
+          day: 'numeric', 
+          month: 'short' 
+        })
+      });
+      added++;
+    }
+    current.setDate(current.getDate() + 1);
+  }
+
+  return days;
+}
+
+const businessDays = getNextBusinessDays();
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reserva tu cita - Nixumi</title>
+  <link rel="icon" type="image/jpeg" href="/logo-white-bg.jpg" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body class="antialiased bg-slate-50 dark:bg-slate-900">
+  <div class="min-h-screen py-20">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <a href="/" class="inline-block mb-8">
+          <img
+            src="/nixumi-logo.webp"
+            alt="Nixumi"
+            width="120"
+            height="48"
+            class="h-12 w-auto mx-auto"
+          />
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: var(--color-navy)">
+          Reserva tu demo
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-300">
+          Selecciona el día que prefieras para tu asesoría gratuita de 30 minutos.
+        </p>
+      </div>
+
+      <!-- Días disponibles -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {businessDays.map(day => (
+          <a
+            href={GOOGLE_CALENDAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block p-6 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-purple hover:shadow-lg transition-all duration-200 group"
+          >
+            <div class="text-center">
+              <div class="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center bg-green/10 group-hover:bg-green/20 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p class="font-semibold text-lg mb-1 capitalize" style="color: var(--color-navy)">
+                {day.display}
+              </p>
+              <p class="text-sm text-slate-500">
+                9:00 AM - 6:00 PM
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Instrucciones -->
+      <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-navy)">
+          ¿Qué pasa después?
+        </h2>
+        <ol class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green/10 text-green flex items-center justify-center text-sm font-bold">
+              1
+            </span>
+            <p class="text-slate-600 dark:text-slate-300">
+              <strong>Haz clic en un día:</strong> Elige el día que mejor te convenga de los disponibles.
+            </p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green/10 text-green flex items-center justify-center text-sm font-bold">
+              2
+            </span>
+            <p class="text-slate-600 dark:text-slate-300">
+              <strong>Elige tu horario:</strong> Serás redirigido a Google Calendar para seleccionar la hora exacta.
+            </p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green/10 text-green flex items-center justify-center text-sm font-bold">
+              3
+            </span>
+            <p class="text-slate-600 dark:text-slate-300">
+              <strong>Recibe confirmación:</strong> Recibirás un correo de confirmación con los detalles de tu cita.
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Botón de regreso -->
+      <div class="mt-12 text-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-purple transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+          </svg>
+          Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
