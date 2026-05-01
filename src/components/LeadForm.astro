@@ -106,25 +106,9 @@
   const formTitle = document.getElementById('form-title') as HTMLHeadingElement;
   const formSubtitle = document.getElementById('form-subtitle') as HTMLParagraphElement;
 
-// Configuración de Supabase desde variables de entorno
-const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
-
-// Flag para saber si Supabase está correctamente configurado
-const supabaseConfigOk = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
-
-if (!supabaseConfigOk) {
-  console.error('ERROR CRÍTICO: Variables de entorno de Supabase no configuradas.');
-  console.error('Asegúrate de configurar PUBLIC_SUPABASE_URL y PUBLIC_SUPABASE_ANON_KEY en Vercel (Settings > Environment Variables).');
-}
-
-// Deshabilitar el formulario si Supabase no está configurado
-if (!supabaseConfigOk) {
-  submitBtn.disabled = true;
-  submitBtn.title = 'Formulario no disponible por falta de configuración.';
-  errorMessage.textContent = 'El formulario no está disponible en este momento. Inténtalo más tarde.';
-  errorContent.classList.remove('hidden');
-}
+// Credenciales de Supabase (anon key = pública por diseño, segura con RLS)
+const SUPABASE_URL = 'https://jtwsjvkltdrjxpisnzyi.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0d3NqdmtsdGRyanhwaXNuenlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3MjQzNjIsImV4cCI6MjA5MTMwMDM2Mn0.bx_YAMpLyhEaIgxnb7LQ_61F-rQ92f2YQBMk0m9vE2Q';
 
 // Máscara de formato para el campo WhatsApp (formato: 123 456 7890)
   const whatsappInput = document.getElementById('whatsapp') as HTMLInputElement;
