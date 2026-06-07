@@ -1,68 +1,107 @@
 @import "tailwindcss";
 
-/* Dark mode: dispara cuando un ancestro tiene la clase .dark */
+/* Dark es el tema por defecto. La clase .dark se mantiene presente por defecto
+   (el script de tema la añade) para que las utilidades dark: de Tailwind y los
+   selectores .dark de aurora.css sigan aplicando. Light = ausencia de .dark. */
 @variant dark (.dark &);
 
+/* @theme = paleta LIGHT (aplica cuando .dark está ausente) y genera las
+   utilidades de color Tailwind (bg-navy, text-purple, border-slate, ...). */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Aptos", "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
 
-  /* Nixumi brand palette */
-  --color-navy:    #253545;
-  --color-purple:  #8B5CF6;
-  --color-green:   #5FB85F;
-  --color-slate:   #A8B5C4;
-  --color-lavender:#C9A8D4;
-  --color-smoke:   #F5F7F8;
+  --color-navy:     #162033;  /* texto/foreground */
+  --color-purple:   #7c5cff;  /* accent (violeta)  */
+  --color-green:    #13a06e;  /* primary (teal)    */
+  --color-slate:    #617087;  /* muted-foreground  */
+  --color-lavender: #7c5cff;
+  --color-smoke:    #F5F7F8;  /* background        */
 }
 
-/* ── Dark mode: inversiones semánticas de paleta ── */
+/* Role tokens — LIGHT (default) + escalas mode-agnostic */
+:root {
+  color-scheme: light;
+  --background: #F5F7F8;
+  --foreground: #162033;
+  --card: rgba(255, 255, 255, 0.92);
+  --popover: rgba(255, 255, 255, 0.96);
+  --primary: #13a06e;
+  --primary-foreground: #ffffff;
+  --accent: #7c5cff;
+  --accent-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.72);
+  --secondary-foreground: #243044;
+  --muted-foreground: #617087;
+  --border: rgba(48, 59, 77, 0.16);
+  --input: rgba(48, 59, 77, 0.22);
+  --ring: #7c5cff;
+  --wa: #1FA855;
+  --pink: #ec6eb5;
+  --grid-line: rgba(54, 45, 61, 0.045);
+  --panel-glow: rgba(124, 58, 237, 0.05);
+  --shadow-card: 0 26px 80px rgba(69, 54, 94, 0.16);
+
+  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, ui-monospace, monospace;
+  --radius-sm: 6px; --radius: 8px; --radius-md: 10px; --radius-lg: 12px; --radius-pill: 999px;
+  --dur-fast: 140ms; --dur-base: 200ms; --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* DARK (por defecto: el script añade .dark). Re-valora utilidades de marca y
+   define los role tokens en oscuro. */
 .dark {
-  --color-navy:    #F5F7F8;  /* texto principal: smoke claro sobre fondo oscuro */
-  --color-purple:  #A78BFA;  /* purple más luminoso para contraste en oscuro    */
-  --color-green:   #7EC97E;  /* green suavizado para no "gritar" en oscuro       */
-  --color-slate:   #94A3B8;  /* slate-400: contraste 6.8:1 sobre #0F1419 → WCAG AA */
-  --color-lavender:#A78BFA;  /* lavender más saturado                            */
-  --color-smoke:   #0F1419;  /* fondo base: navy muy oscuro                      */
+  color-scheme: dark;
+  --color-navy:     #fbf7ff;
+  --color-purple:   #9c6cff;
+  --color-green:    #31e6a2;
+  --color-slate:    #b9b0c4;
+  --color-lavender: #9c6cff;
+  --color-smoke:    #0F1419;
+
+  --background: #0F1419;
+  --foreground: #fbf7ff;
+  --card: rgba(15, 18, 27, 0.82);
+  --popover: rgba(15, 18, 27, 0.92);
+  --primary: #31e6a2;
+  --primary-foreground: #03140d;
+  --accent: #9c6cff;
+  --accent-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: #fbf7ff;
+  --muted-foreground: #b9b0c4;
+  --border: rgba(255, 255, 255, 0.14);
+  --input: rgba(255, 255, 255, 0.16);
+  --ring: #b98cff;
+  --wa: #25D366;
+  --pink: #f472b6;
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --panel-glow: rgba(49, 230, 162, 0.06);
+  --shadow-card: 0 28px 90px rgba(0, 0, 0, 0.32);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-/* ── Offset para anchors internos (header fixed h-20 md:h-24) ── */
-section[id] {
-  scroll-margin-top: 6rem;
-}
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 6rem; }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-smoke);
-  color: var(--color-navy);
+  background-color: var(--background);
+  color: var(--foreground);
   transition: background-color 300ms ease, color 300ms ease;
 }
 
-/* ── Header sticky scroll bg (auto dark via CSS var) ── */
 .header-scrolled {
-  background-color: color-mix(in srgb, var(--color-smoke) 92%, transparent);
+  background-color: color-mix(in srgb, var(--background) 92%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
 
-/* ── Scroll-triggered fade-in ── */
-.fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-d1 { transition-delay: 80ms;  }
-.fade-d2 { transition-delay: 160ms; }
-.fade-d3 { transition-delay: 240ms; }
-.fade-d4 { transition-delay: 320ms; }
-.fade-d5 { transition-delay: 400ms; }
-.fade-d6 { transition-delay: 480ms; }
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .65s ease-out, transform .65s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-d1 { transition-delay: 80ms; } .fade-d2 { transition-delay: 160ms; }
+.fade-d3 { transition-delay: 240ms; } .fade-d4 { transition-delay: 320ms; }
+.fade-d5 { transition-delay: 400ms; } .fade-d6 { transition-delay: 480ms; }
 
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { transition: none; opacity: 1; transform: none; }
+}

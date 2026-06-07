@@ -3,7 +3,8 @@ const THEME_KEY = 'nixumi-theme';
 function getInitialTheme(): 'light' | 'dark' {
   const stored = localStorage.getItem(THEME_KEY);
   if (stored === 'light' || stored === 'dark') return stored;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  // Default dark; only switch to light when system explicitly prefers light
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
 function updateToggleIcon(theme: 'light' | 'dark') {
@@ -16,6 +17,7 @@ function updateToggleIcon(theme: 'light' | 'dark') {
 
 function applyTheme(theme: 'light' | 'dark') {
   document.documentElement.classList.toggle('dark', theme === 'dark');
+  document.documentElement.dataset.theme = theme;
   localStorage.setItem(THEME_KEY, theme);
   updateToggleIcon(theme);
 }
