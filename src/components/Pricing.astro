@@ -1,7 +1,7 @@
 ---
-const WA_ARRANQUE    = 'https://wa.me/5212381238389?text=Hola%2C%20me%20interesa%20el%20plan%20Arranque%20de%20Nixumi%20con%20descuento%20Fundadores';
-const WA_CRECIMIENTO = 'https://wa.me/5212381238389?text=Hola%2C%20me%20interesa%20el%20plan%20Crecimiento%20de%20Nixumi%20con%20descuento%20Fundadores';
-const WA_ENTERPRISE  = 'https://wa.me/5212381238389?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20de%20Nixumi';
+const WA_ARRANQUE    = 'https://wa.me/522361125488?text=Hola%2C%20me%20interesa%20el%20plan%20Arranque%20de%20Nixumi%20con%20descuento%20Fundadores';
+const WA_CRECIMIENTO = 'https://wa.me/522361125488?text=Hola%2C%20me%20interesa%20el%20plan%20Crecimiento%20de%20Nixumi%20con%20descuento%20Fundadores';
+const WA_ENTERPRISE  = 'https://wa.me/522361125488?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20de%20Nixumi';
 
 const trustSignals = [
   'Sin contratos forzosos',
@@ -194,6 +194,7 @@ const enterpriseBullets: Bullet[] = [
           target="_blank"
           rel="noopener noreferrer"
           class="btn-nx btn-outline btn-full"
+          data-wa-event="wa_click_plan_arranque"
         >
           Empezar con Arranque
         </a>
@@ -287,6 +288,7 @@ const enterpriseBullets: Bullet[] = [
           target="_blank"
           rel="noopener noreferrer"
           class="btn-nx btn-secondary btn-full"
+          data-wa-event="wa_click_plan_crecimiento"
         >
           Elegir Crecimiento
         </a>
@@ -340,6 +342,7 @@ const enterpriseBullets: Bullet[] = [
           target="_blank"
           rel="noopener noreferrer"
           class="btn-nx btn-outline btn-full"
+          data-wa-event="wa_click_plan_enterprise"
         >
           Cotizar Enterprise
         </a>

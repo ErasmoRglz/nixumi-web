@@ -1,6 +1,6 @@
 ---
-const WA_DEMO = 'https://wa.me/5212381238389?text=Hola';
-const WA_FAQ  = 'https://wa.me/5212381238389?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Nixumi';
+const WA_DEMO = 'https://wa.me/522361125488?text=Hola%2C%20vi%20el%20FAQ%20de%20Nixumi%20y%20quiero%20probar%20el%20bot';
+const WA_FAQ  = 'https://wa.me/522361125488?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Nixumi';
 
 const faqs = [
   {
@@ -130,6 +130,7 @@ const faqs = [
               rel="noopener noreferrer"
               aria-label="Chatear con Nixumi por WhatsApp"
               class="btn-nx btn-primary btn-sm"
+              data-wa-event="wa_click_faq_demo"
             >
               Abrir WhatsApp de Nixumi
               <svg xmlns="http://www.w3.org/2000/svg" class="btn-arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -152,6 +153,7 @@ const faqs = [
         aria-label="Chatear con Nixumi por WhatsApp"
         class="font-semibold transition-all duration-200 hover:underline underline-offset-2"
         style="color:var(--color-green)"
+        data-wa-event="wa_click_faq_pregunta"
       >
         Pregúntanos por WhatsApp →
       </a>

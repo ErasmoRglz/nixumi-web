@@ -1,5 +1,5 @@
 ---
-// Aviso de Privacidad - Nixumi (desarrollador de chatbots)
+import '../styles/global.css';
 const tituloPagina = "Aviso de Privacidad | Nixumi";
 ---
 
@@ -9,9 +9,12 @@ const tituloPagina = "Aviso de Privacidad | Nixumi";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{tituloPagina}</title>
-  <meta name="description" content="Aviso de Privacidad de Nixumi. Esta página web no recaba datos personales. Información sobre el tratamiento de datos en el desarrollo de chatbots." />
+  <meta name="description" content="Aviso de Privacidad de Nixumi. Conoce cómo protegemos y tratamos tus datos personales conforme a la LFPDPPP." />
   <link rel="canonical" href="https://www.nixumi.lat/aviso-de-privacidad" />
-  <link rel="stylesheet" href="/src/styles/global.css">
+  <link rel="icon" type="image/jpeg" href="/logo-white-bg.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -22,47 +25,101 @@ const tituloPagina = "Aviso de Privacidad | Nixumi";
       color: #1a1a1a;
       line-height: 1.5;
     }
-    h1 { color: #0a2540; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
-    h2 { color: #1e6f5c; margin-top: 1.8rem; font-size: 1.5rem; }
-    ul, ol { margin: 1rem 0; padding-left: 1.8rem; }
-    li { margin: 0.5rem 0; }
-    strong { color: #0a2540; }
-    .footer-note { margin-top: 3rem; font-size: 0.85rem; color: #5b6e8c; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 1.5rem; }
+    h1 {
+      color: #0a2540;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+    h2 {
+      color: #1e6f5c;
+      margin-top: 1.8rem;
+      font-size: 1.5rem;
+    }
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 1.8rem;
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    strong {
+      color: #0a2540;
+    }
+    .footer-note {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #5b6e8c;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.5rem;
+    }
+    .footer-note a {
+      color: #7c3aed;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-<h1>AVISO DE PRIVACIDAD</h1>
+  <h1>AVISO DE PRIVACIDAD</h1>
 
-<h2>1. Identidad y Responsable</h2>
-<p>Yo, <strong>ERASMO REGINO GONZALEZ</strong>, Persona Física con Actividad Empresarial bajo el Régimen Simplificado de Confianza (RESICO), con RFC <strong>REGE040717DL9</strong>, actuando bajo el nombre comercial <strong>Nixumi</strong>, con domicilio en <strong>Altepexi, Puebla, C.P. 75950</strong>, soy el responsable del tratamiento de los datos personales que pudieran recabarse en el marco de la prestación de mis servicios de desarrollo, entrenamiento y configuración de chatbots de inteligencia artificial para WhatsApp.</p>
+  <h2>1. Identidad y Responsable</h2>
+  <p>Yo, <strong>ERASMO REGINO GONZALEZ</strong>, Persona Física bajo el Régimen Simplificado de Confianza (RESICO), con RFC <strong>REGE040717DL9</strong>, actuando bajo el nombre comercial <strong>Nixumi</strong>, con domicilio en <strong>Altepexi, Puebla, C.P. 75950</strong>, soy el responsable del tratamiento de los datos personales que se recaban a través del sitio web https://www.nixumi.lat y en el marco de la prestación de mis servicios de desarrollo, entrenamiento y configuración de chatbots de inteligencia artificial para WhatsApp.</p>
 
-<h2>2. Datos que NO se recaban en este sitio web</h2>
-<p>El sitio web https://www.nixumi.lat es una página informativa y comercial. <strong>No se utiliza ningún formulario de contacto, sistema de registro, cookies de rastreo, analíticas ni herramientas de recolección de datos personales de los visitantes.</strong> Por lo tanto, <strong>no recolecto ningún dato personal a través de esta página</strong>.</p>
+  <h2>2. Datos que se recaban en este sitio web</h2>
+  <p>El sitio web https://www.nixumi.lat cuenta con un <strong>formulario de contacto</strong> mediante el cual los visitantes pueden solicitar información sobre nuestros servicios. A través de este formulario, se recaban los siguientes datos personales:</p>
+  <ul>
+    <li><strong>Nombre completo</strong></li>
+    <li><strong>Número de WhatsApp</strong></li>
+    <li><strong>Nombre del negocio</strong></li>
+  </ul>
+  <p>Estos datos se utilizan exclusivamente para contactar al interesado y ofrecerle información sobre los servicios de Nixumi. Los datos se almacenan en nuestra base de datos en Supabase (infraestructura en la nube con cifrado en tránsito y en reposo) y se conservan únicamente mientras exista una relación comercial potencial o activa.</p>
+  <p>Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos (derechos ARCO) en cualquier momento, contactándonos a través de los medios indicados en la sección 6 de este aviso.</p>
 
-<h2>3. Tratamiento de datos en el servicio de chatbots</h2>
-<p>Cuando un cliente me contrata para desarrollar un chatbot, puedo recibir información necesaria para entrenar al bot, por ejemplo: preguntas frecuentes, respuestas esperadas, guiones de atención, listados de productos o servicios, y cualquier otro contenido que el cliente decida proporcionarme. Esta información es entregada voluntariamente por el cliente con el único fin de configurar y entrenar el asistente conversacional.</p>
-<p>En ese contexto, actúo como <strong>encargado del tratamiento</strong> de dicha información, bajo las instrucciones del cliente. El cliente es el responsable de garantizar que cuenta con las autorizaciones necesarias para compartir esa información conmigo. Una vez entregado el chatbot funcional, no almaceno ni conservo copias de la información del cliente, salvo lo necesario para el soporte técnico inmediato.</p>
+  <h2>3. Tratamiento de datos en el servicio de chatbots</h2>
+  <p>Cuando un cliente me contrata para desarrollar un chatbot, puedo recibir información necesaria para entrenar al bot, por ejemplo: preguntas frecuentes, respuestas esperadas, guiones de atención, listados de productos o servicios, y cualquier otro contenido que el cliente decida proporcionarme. Esta información es entregada voluntariamente por el cliente con el único fin de configurar y entrenar el asistente conversacional.</p>
+  <p>En ese contexto, actúo como <strong>encargado del tratamiento</strong> de dicha información, bajo las instrucciones del cliente. El cliente es el responsable de garantizar que cuenta con las autorizaciones necesarias para compartir esa información conmigo. Una vez entregado el chatbot funcional, no almaceno ni conservo copias de la información del cliente, salvo lo necesario para el soporte técnico inmediato.</p>
 
-<h2>4. Datos de clientes finales (terceros)</h2>
-<p>El chatbot desarrollado por Nixumi se conecta a la cuenta de WhatsApp Business del cliente. Las conversaciones entre el bot y los clientes finales de cada negocio <strong>son gestionadas íntegramente por el cliente a través de su propia cuenta de WhatsApp y la infraestructura de Meta Platforms, Inc.</strong> Nixumi no tiene acceso, no almacena ni procesa esos datos. El cliente es el único responsable del cumplimiento de la normativa de protección de datos respecto de sus propios clientes.</p>
+  <h2>4. Datos de clientes finales (terceros)</h2>
+  <p>El chatbot desarrollado por Nixumi se conecta a la cuenta de WhatsApp Business del cliente. Las conversaciones entre el bot y los clientes finales de cada negocio <strong>son gestionadas íntegramente por el cliente a través de su propia cuenta de WhatsApp y la infraestructura de Meta Platforms, Inc.</strong> Nixumi no tiene acceso, no almacena ni procesa esos datos. El cliente es el único responsable del cumplimiento de la normativa de protección de datos respecto de sus propios clientes.</p>
 
-<h2>5. Limitación de responsabilidad</h2>
-<p>Nixumi no se hace responsable por el uso que el cliente dé al chatbot, ni por el tratamiento de datos que el cliente realice a través de su cuenta de WhatsApp Business. Toda gestión de derechos ARCO, consentimientos o avisos de privacidad hacia los clientes finales del negocio es responsabilidad exclusiva del cliente.</p>
+  <h2>5. Transferencia de datos</h2>
+  <p>Nixumi no transferirá sus datos personales a terceros sin su consentimiento expreso, salvo las excepciones previstas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP). Los datos del formulario de contacto se almacenan en servidores de Supabase (infraestructura en la nube con cifrado en tránsito y en reposo), los cuales cumplen con estándares internacionales de seguridad.</p>
 
-<h2>6. Medios de contacto</h2>
-<p>Para cualquier asunto relacionado con este aviso de privacidad, o para ejercer tus derechos en caso de que me hayas proporcionado información directamente (como cliente), puedes contactarme a través de:</p>
-<ul>
-  <li><strong>Correo electrónico:</strong> nixumi-soluciones@nixumi.lat</li>
-  <li><strong>WhatsApp:</strong> +52 238 123 8389 / +52 236 112 5488</li>
-</ul>
+  <h2>6. Derechos ARCO y medio de contacto</h2>
+  <p>Usted tiene derecho a:</p>
+  <ul>
+    <li><strong>Acceder</strong> a sus datos personales que poseemos.</li>
+    <li><strong>Rectificar</strong> sus datos si son inexactos o incompletos.</li>
+    <li><strong>Cancelar</strong> sus datos cuando considere que no son necesarios para las finalidades señaladas.</li>
+    <li><strong>Oponerse</strong> al tratamiento de sus datos para fines específicos.</li>
+  </ul>
+  <p>Para ejercer sus derechos ARCO, o para cualquier asunto relacionado con este aviso de privacidad, puede contactarme a través de:</p>
+  <ul>
+    <li><strong>Correo electrónico:</strong> nixumi-soluciones@nixumi.lat</li>
+    <li><strong>WhatsApp:</strong> +52 238 123 8389 / +52 236 112 5488</li>
+  </ul>
+  <p>Le responderemos en un plazo máximo de 20 días hábiles.</p>
 
-<h2>7. Modificaciones</h2>
-<p>Este aviso de privacidad puede actualizarse. Cualquier cambio será publicado en esta misma URL, con fecha de actualización. Versión vigente: <strong>1 de mayo de 2026</strong>.</p>
+  <h2>7. Uso de cookies y tecnologías similares</h2>
+  <p>Este sitio web utiliza únicamente cookies técnicas necesarias para el funcionamiento del sitio, como la cookie de preferencia de tema (dark/light mode) almacenada localmente en su navegador. No utilizamos cookies de rastreo, publicitarias ni de terceros sin su consentimiento explícito.</p>
+  <p>En caso de implementar herramientas de análisis o marketing en el futuro (como Google Analytics o Meta Pixel), se le solicitará su consentimiento mediante un banner de cookies antes de su activación.</p>
+  <p>Puede configurar su navegador para rechazar todas las cookies o para indicarle cuándo se envía una cookie.</p>
 
-<div class="footer-note">
-  <a href="/">← Volver al inicio</a>
-</div>
+  <h2>8. Limitación de responsabilidad</h2>
+  <p>Nixumi no se hace responsable por el uso que el cliente dé al chatbot, ni por el tratamiento de datos que el cliente realice a través de su cuenta de WhatsApp Business. Toda gestión de derechos ARCO, consentimientos o avisos de privacidad hacia los clientes finales del negocio es responsabilidad exclusiva del cliente.</p>
+
+  <h2>9. Modificaciones</h2>
+  <p>Este aviso de privacidad puede actualizarse. Cualquier cambio será publicado en esta misma URL, con fecha de actualización.</p>
+  <p>Versión vigente: <strong>1 de mayo de 2026</strong>.</p>
+
+  <div class="footer-note">
+    <a href="/">← Volver al inicio</a>
+  </div>
 
 </body>
 </html>

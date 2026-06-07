@@ -25,3 +25,10 @@ pnpm-debug.log*
 
 # Claude Code local config
 .claude/
+
+.vercel
+.env*.local
+
+# Material de referencia / scratch (no debe entrar al repo)
+platform-design-ref/
+auditoria-nixumi.md
