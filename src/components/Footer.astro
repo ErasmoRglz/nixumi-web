@@ -1,15 +1,17 @@
 ---
 const navLinks = [
-  { href: '#servicios', label: 'Servicios'      },
-  { href: '#proceso',   label: 'Proceso'        },
-  { href: '#casos',     label: 'Casos de éxito' },
-  { href: '#precios',   label: 'Precios'        },
-  { href: '#faq',       label: 'FAQ'            },
+  { href: '#plataforma', label: 'Plataforma'    },
+  { href: '#servicios',  label: 'Servicios'     },
+  { href: '#proceso',    label: 'Proceso'       },
+  { href: '#casos',      label: 'Casos de éxito'},
+  { href: '#precios',    label: 'Precios'       },
+  { href: '#faq',        label: 'FAQ'           },
+  { href: 'https://app.nixumi.lat/login', label: 'Entrar' },
 ];
 
 ---
 
-<footer style="background:#1a2535">
+<footer style="background:color-mix(in srgb, var(--background) 90%, #ffffff 6%)">
   <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
 
     <!-- ── Grid superior ── -->
@@ -28,12 +30,11 @@ const navLinks = [
         </a>
 
         <p class="text-base font-semibold mb-3 text-white">
-          Automatización inteligente para negocios reales.
+          Plataforma y servicio de WhatsApp con IA.
         </p>
 
         <p class="text-sm leading-relaxed mb-5" style="color:rgba(168,181,196,0.8)">
-          Construimos chatbots con IA que trabajan 24/7 por tu negocio.
-          Hecho a medida, sin código, sin complicaciones.
+          Úsala gratis y self-serve para construir con tus herramientas, o deja que la montemos y operemos por ti.
         </p>
 
         <span
@@ -42,6 +43,10 @@ const navLinks = [
         >
         Hecho en Puebla, México
         </span>
+
+        <div class="inline-flex items-center gap-2 rounded-lg px-3 py-1.5 mt-4" style="background:rgba(255,255,255,0.92)">
+          <img src="/brand/meta-tech-provider.png" alt="Meta Tech Provider verificado por Meta" width="150" height="38" class="h-6 w-auto" />
+        </div>
       </div>
 
       <!-- COL 2 — Navegación -->
@@ -71,36 +76,16 @@ const navLinks = [
         <h3 class="text-sm font-semibold text-white mb-5 uppercase tracking-wider">
           Hablemos
         </h3>
-        <ul class="space-y-4" role="list">
 
-          <!-- WhatsApp principal -->
-          <li>
-            <a
-              href="https://wa.me/522361125488?text=Hola"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chatear con Nixumi por WhatsApp"
-              class="flex items-start gap-2.5 text-sm group transition-colors duration-200"
-              style="color:rgba(168,181,196,0.75)"
-              data-wa-event="wa_click_footer"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5 transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
-              </svg>
-              <span>
-<span class="block font-medium" style="color:rgba(255,255,255,0.7)">WhatsApp</span>
-+52 236 112 5488
-              </span>
-            </a>
-          </li>
-
-          <!-- WhatsApp secundario -->
+        <!-- Grupo: Ventas / atención -->
+        <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:rgba(168,181,196,0.5)">Ventas / atención</p>
+        <ul class="space-y-3 mb-5" role="list">
           <li>
             <a
               href="https://wa.me/5212381238389?text=Hola"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Chatear con Nixumi por WhatsApp"
+              aria-label="WhatsApp ventas Nixumi"
               class="flex items-start gap-2.5 text-sm group transition-colors duration-200"
               style="color:rgba(168,181,196,0.75)"
               data-wa-event="wa_click_footer"
@@ -108,36 +93,52 @@ const navLinks = [
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5 transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
               </svg>
-              <span>
-<span class="block font-medium" style="color:rgba(255,255,255,0.7)">WhatsApp</span>
-+52 1 238 123 8389
-              </span>
+              <span>+52 238 123 8389</span>
             </a>
           </li>
-
-          <!-- Correo -->
           <li class="flex items-start gap-2.5 text-sm" style="color:rgba(168,181,196,0.65)">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-slate)">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
-            <span>
-              <span class="block font-medium" style="color:rgba(255,255,255,0.7)">Correo</span>
-              nixumi-soluciones@nixumi.lat
-            </span>
+            <span>nixumi-soluciones@nixumi.lat</span>
           </li>
+        </ul>
 
-          <!-- Hours -->
+        <!-- Grupo: Soporte -->
+        <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:rgba(168,181,196,0.5)">Soporte</p>
+        <ul class="space-y-3 mb-5" role="list">
+          <li>
+            <a
+              href="https://wa.me/522361125488?text=Hola"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp soporte Nixumi"
+              class="flex items-start gap-2.5 text-sm group transition-colors duration-200"
+              style="color:rgba(168,181,196,0.75)"
+              data-wa-event="wa_click_footer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5 transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+              </svg>
+              <span>+52 236 112 5488</span>
+            </a>
+          </li>
           <li class="flex items-start gap-2.5 text-sm" style="color:rgba(168,181,196,0.65)">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-slate)">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
-            <span>
-              <span class="block font-medium" style="color:rgba(255,255,255,0.7)">Nuestros Horarios</span>
-              Lun – Vie 8am – 7pm (CST)
-            </span>
+            <span>soporte@nixumi.lat</span>
           </li>
-
         </ul>
+
+        <!-- Horario -->
+        <div class="flex items-start gap-2.5 text-sm" style="color:rgba(168,181,196,0.65)">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-slate)">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          <span>Lun – Vie 8am – 7pm (CST)</span>
+        </div>
+
       </div>
 
 

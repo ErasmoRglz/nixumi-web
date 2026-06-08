@@ -1,5 +1,5 @@
 ---
-const WA = 'https://wa.me/522361125488?text=Hola%2C%20quiero%20automatizar%20mi%20negocio';
+const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20hablar%20con%20Nixumi';
 
 const trustItems = [
   {
@@ -51,7 +51,7 @@ const trustItems = [
           href={WA}
           target="_blank"
           rel="noopener noreferrer"
-          class="cta-btn btn-nx btn-primary btn-xl w-full sm:w-auto"
+          class="cta-btn btn-nx btn-wa btn-xl w-full sm:w-auto"
           style="gap:0.75rem"
           data-wa-event="wa_click_cta_final"
         >
@@ -80,8 +80,13 @@ const trustItems = [
     </div>
 
     <!-- BLOQUE 3: Trust reminder -->
+    <div class="mt-16 flex justify-center fade-in fade-d3">
+      <div class="inline-flex items-center gap-2 rounded-lg px-3 py-1.5 mb-2" style="background:rgba(255,255,255,0.92)">
+        <img src="/brand/meta-tech-provider.png" alt="Meta Tech Provider verificado por Meta" width="150" height="38" class="h-6 w-auto" />
+      </div>
+    </div>
     <ul
-      class="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-5 fade-in fade-d3"
+      class="flex flex-wrap justify-center gap-x-10 gap-y-5 fade-in fade-d3"
       role="list"
     >
       {trustItems.map(item => (
