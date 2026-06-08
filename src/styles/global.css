@@ -15,21 +15,21 @@
   --color-green:    #13a06e;  /* primary (teal)    */
   --color-slate:    #617087;  /* muted-foreground  */
   --color-lavender: #7c5cff;
-  --color-smoke:    #F5F7F8;  /* background        */
+  --color-smoke:    #F2EFE8;  /* background        */
 }
 
 /* Role tokens — LIGHT (default) + escalas mode-agnostic */
 :root {
   color-scheme: light;
-  --background: #F5F7F8;
+  --background: #F2EFE8;
   --foreground: #162033;
-  --card: rgba(255, 255, 255, 0.92);
-  --popover: rgba(255, 255, 255, 0.96);
+  --card: rgba(250, 248, 243, 0.94);
+  --popover: rgba(255, 253, 248, 0.97);
   --primary: #13a06e;
   --primary-foreground: #ffffff;
   --accent: #7c5cff;
   --accent-foreground: #ffffff;
-  --secondary: rgba(255, 255, 255, 0.72);
+  --secondary: rgba(255, 253, 248, 0.72);
   --secondary-foreground: #243044;
   --muted-foreground: #617087;
   --border: rgba(48, 59, 77, 0.16);
@@ -37,9 +37,9 @@
   --ring: #7c5cff;
   --wa: #1FA855;
   --pink: #ec6eb5;
-  --grid-line: rgba(54, 45, 61, 0.045);
+  --grid-line: rgba(64, 55, 42, 0.045);
   --panel-glow: rgba(124, 58, 237, 0.05);
-  --shadow-card: 0 26px 80px rgba(69, 54, 94, 0.16);
+  --shadow-card: 0 26px 80px rgba(74, 63, 42, 0.14);
 
   --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, ui-monospace, monospace;
   --radius-sm: 6px; --radius: 8px; --radius-md: 10px; --radius-lg: 12px; --radius-pill: 999px;
