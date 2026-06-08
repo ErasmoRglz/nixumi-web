@@ -1,4 +1,6 @@
 ---
+import MetaBadge from './MetaBadge.astro';
+
 const navLinks = [
   { href: '#plataforma', label: 'Plataforma'    },
   { href: '#servicios',  label: 'Servicios'     },
@@ -44,8 +46,8 @@ const navLinks = [
         Hecho en Puebla, México
         </span>
 
-        <div class="inline-flex items-center gap-2 rounded-lg px-3 py-1.5 mt-4" style="background:rgba(255,255,255,0.92)">
-          <img src="/brand/meta-tech-provider.png" alt="Meta Tech Provider verificado por Meta" width="150" height="38" class="h-6 w-auto" />
+        <div class="mt-4">
+          <MetaBadge />
         </div>
       </div>
 
