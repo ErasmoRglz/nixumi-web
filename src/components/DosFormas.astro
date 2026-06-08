@@ -1,0 +1,88 @@
+---
+const WA_VENTAS = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20agendar%20un%20diagn%C3%B3stico%20con%20Nixumi';
+const REGISTER = 'https://app.nixumi.lat/register';
+
+const panelA = {
+  title: 'Plataforma gratis',
+  subtitle: 'Conecta un canal de WhatsApp y construye tus automatizaciones con tus herramientas',
+  bullets: [
+    'Un canal incluido',
+    'API de coexistencia o Meta Cloud API',
+    'Inbox y operación desde consola',
+    'Compatible con n8n, agentes IA y herramientas externas',
+    'Tú controlas el chatbot y los flujos',
+  ],
+};
+const panelB = {
+  title: 'Servicio gestionado',
+  subtitle: 'Nosotros diseñamos, construimos y operamos tu solución',
+  bullets: [
+    'Diagnóstico del negocio',
+    'Diseño de flujos conversacionales',
+    'Integración con WhatsApp',
+    'Automatizaciones y soporte',
+    'Puesta en marcha acompañada',
+  ],
+};
+---
+
+<section id="plataforma" class="aurora-medium py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3" style="color:var(--foreground)">
+        Dos formas de trabajar con Nixumi
+      </h2>
+      <p class="text-base md:text-lg max-w-2xl mx-auto" style="color:var(--muted-foreground)">
+        Úsala tú mismo o deja que la montemos por ti.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Panel A — Plataforma self-serve -->
+      <article class="fade-in fade-d1 flex flex-col rounded-xl p-7"
+        style="background:var(--card); border:1px solid var(--border); box-shadow:var(--shadow-card)">
+        <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--primary)">Self-serve</p>
+        <h3 class="text-xl font-extrabold mb-1" style="color:var(--foreground)">{panelA.title}</h3>
+        <p class="text-sm mb-5 leading-relaxed" style="color:var(--muted-foreground)">{panelA.subtitle}</p>
+        <ul class="flex-1 space-y-2.5 mb-7" role="list">
+          {panelA.bullets.map(b => (
+            <li class="flex items-start gap-2.5 text-sm" style="color:var(--foreground)">
+              <svg class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="color:var(--primary)" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {b}
+            </li>
+          ))}
+        </ul>
+        <a href={REGISTER} class="btn-nx btn-primary btn-full" data-wa-event="cta_register_dosformas">
+          Crear cuenta gratis
+        </a>
+      </article>
+
+      <!-- Panel B — Servicio gestionado -->
+      <article class="fade-in fade-d2 flex flex-col rounded-xl p-7"
+        style="background:var(--card); border:1px solid var(--border); box-shadow:var(--shadow-card)">
+        <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--accent)">Done-for-you</p>
+        <h3 class="text-xl font-extrabold mb-1" style="color:var(--foreground)">{panelB.title}</h3>
+        <p class="text-sm mb-5 leading-relaxed" style="color:var(--muted-foreground)">{panelB.subtitle}</p>
+        <ul class="flex-1 space-y-2.5 mb-7" role="list">
+          {panelB.bullets.map(b => (
+            <li class="flex items-start gap-2.5 text-sm" style="color:var(--foreground)">
+              <svg class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="color:var(--accent)" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {b}
+            </li>
+          ))}
+        </ul>
+        <a href={WA_VENTAS} target="_blank" rel="noopener noreferrer"
+           class="btn-nx btn-secondary btn-full" data-wa-event="wa_click_dosformas">
+          Agendar diagnóstico
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
