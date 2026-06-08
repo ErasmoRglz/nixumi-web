@@ -1,0 +1,170 @@
+---
+// Banner de consentimiento de analytics.
+// Carga Google Analytics 4 (gtag.js) únicamente si el usuario acepta.
+// El ID de medición se inyecta desde la variable de entorno PUBLIC_GA4_MEASUREMENT_ID
+// (valor con formato G-XXXXXXXXXX, obtenido en GA4: Administrador → Recogida y
+//  modificación de datos → Flujos de datos → flujo web → ID de medición).
+const measurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID ?? '';
+---
+
+<div id="analytics-consent" class="ac-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de analytics" hidden>
+  <p class="ac-text">
+    Usamos cookies de análisis (Google Analytics 4) para entender cómo se usa el sitio
+    y mejorarlo. Solo se activan si las aceptas. Consulta nuestro
+    <a href="/aviso-de-privacidad">aviso de privacidad</a>.
+  </p>
+  <div class="ac-actions">
+    <button type="button" id="ac-reject" class="ac-btn ac-btn-ghost">Solo necesarias</button>
+    <button type="button" id="ac-accept" class="ac-btn ac-btn-primary">Aceptar analytics</button>
+  </div>
+</div>
+
+<script is:inline define:vars={{ measurementId }}>
+  (function () {
+    var STORAGE_KEY = 'nixumi-analytics-consent';
+
+    function loadGA4() {
+      if (!measurementId) return;
+      if (window.__nixumiGA4Loaded) return;
+      window.__nixumiGA4Loaded = true;
+
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+      document.head.appendChild(s);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', measurementId, { anonymize_ip: true });
+    }
+
+    var banner = document.getElementById('analytics-consent');
+
+    function hideBanner() {
+      if (banner) banner.hidden = true;
+    }
+
+    function getStored() {
+      try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+
+    function setStored(value) {
+      try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+    }
+
+    var stored = getStored();
+
+    if (stored === 'accepted') {
+      loadGA4();
+    } else if (stored === 'rejected') {
+      // Respetar rechazo previo: no cargar nada.
+    } else if (measurementId && banner) {
+      // Sin preferencia previa: mostrar banner solo si hay ID configurado.
+      banner.hidden = false;
+    }
+
+    var acceptBtn = document.getElementById('ac-accept');
+    var rejectBtn = document.getElementById('ac-reject');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        setStored('accepted');
+        hideBanner();
+        loadGA4();
+      });
+    }
+
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', function () {
+        setStored('rejected');
+        hideBanner();
+      });
+    }
+  })();
+</script>
+
+<style>
+  .ac-banner {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 60;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--popover);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    font-family: var(--font-sans);
+  }
+
+  .ac-text {
+    flex: 1 1 14rem;
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+  }
+
+  .ac-text a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .ac-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+  }
+
+  .ac-btn {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: filter var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    white-space: nowrap;
+  }
+
+  .ac-btn-ghost {
+    background: transparent;
+    color: var(--foreground);
+    border-color: var(--border);
+  }
+
+  .ac-btn-ghost:hover {
+    background: var(--secondary);
+  }
+
+  .ac-btn-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .ac-btn-primary:hover {
+    filter: brightness(1.05);
+  }
+
+  @media (max-width: 480px) {
+    .ac-actions {
+      width: 100%;
+    }
+    .ac-btn {
+      flex: 1 1 auto;
+    }
+  }
+</style>
