@@ -1,40 +1,26 @@
 ---
-const WA_DEMO = 'https://wa.me/522361125488?text=Hola%2C%20vi%20el%20FAQ%20de%20Nixumi%20y%20quiero%20probar%20el%20bot';
-const WA_FAQ  = 'https://wa.me/522361125488?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Nixumi';
+const WA_DEMO = 'https://wa.me/5212381238389?text=Hola%2C%20vi%20el%20FAQ%20de%20Nixumi%20y%20quiero%20probar%20el%20bot';
+const WA_FAQ  = 'https://wa.me/5212381238389?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Nixumi';
 
 const faqs = [
-  {
-    q: '¿En cuánto tiempo está activo mi chatbot?',
-    a: 'Entre 5 y 15 días hábiles, dependiendo de la complejidad. La mayoría de proyectos del plan Arranque los entregamos en menos de 7 días. Te mostramos avances cada 2-3 días para que veas cómo va tomando forma.',
-  },
-  {
-    q: '¿Necesito saber de tecnología para usar Nixumi?',
-    a: 'Para nada. Nosotros nos encargamos de toda la parte técnica. Tú solo nos cuentas cómo funciona tu negocio, nosotros construimos el chatbot, y tú lo operas desde tu WhatsApp normal. Sin apps nuevas, sin instalaciones.',
-  },
-  {
-    q: '¿Qué pasa si no me convence el resultado?',
-    a: 'Tienes 14 días de garantía a partir de la entrega del chatbot. Si no estás satisfecho, te devolvemos el 100% del setup. Sin preguntas, sin letras chiquitas, sin trámites largos.',
-  },
-  {
-    q: '¿Puedo atender yo a un cliente cuando el bot ya le está respondiendo?',
-    a: 'Sí. Incluimos Human Takeover desde el plan Arranque: con un comando desde tu WhatsApp pausas el bot para esa conversación específica, atiendes tú, y cuando terminas el bot se reactiva. Todos los demás clientes siguen siendo atendidos normalmente.',
-  },
-  {
-    q: '¿Mis datos y los de mis clientes están seguros?',
-    a: '100%. Usamos infraestructura encriptada (Google Cloud, Supabase) y cumplimos con la LFPDPPP (Ley Federal de Protección de Datos Personales en Posesión de los Particulares). Tus conversaciones nunca se comparten con terceros.',
-  },
-  {
-    q: '¿Con qué plataformas se integra?',
-    a: 'WhatsApp Business (vía Meta Cloud API o BSP), Google Calendar, Google Sheets, Supabase, Postgres, HubSpot, Odoo, y básicamente cualquier sistema que tenga API. Si tu negocio usa algo específico, lo evaluamos sin costo.',
-  },
-  {
-    q: '¿Puedo cambiar de plan después?',
-    a: 'Sí. Puedes subir o bajar de plan en cualquier momento. Si subes, el cambio aplica al día siguiente. Si bajas, aplica al siguiente ciclo de facturación. Nunca hay penalizaciones.',
-  },
-  {
-    q: '¿Hay contrato forzoso o permanencia?',
-    a: 'No. Planes mensuales sin permanencia. Cancelas cuando quieras. La mensualidad cubre soporte, mejoras continuas y cambios pequeños. Si cancelas, el bot se apaga al final del ciclo pagado.',
-  },
+  { q: '¿La plataforma es gratis?',
+    a: 'Sí, puedes usar la plataforma gratis con un canal de WhatsApp y construir tus propias automatizaciones con tus herramientas. Lo gratis es el acceso a la consola self-serve: no incluye que nosotros te construyamos el chatbot ni el servicio gestionado.' },
+  { q: '¿Qué incluye exactamente el canal gratis?',
+    a: 'Un canal de WhatsApp conectado, inbox y operación desde la consola, API de coexistencia o Meta Cloud API, y compatibilidad con n8n y agentes de IA externos. Tú construyes y controlas tus flujos. No incluye construcción del chatbot, IA avanzada gestionada, implementación ni soporte dedicado.' },
+  { q: '¿Nixumi me construye el chatbot o lo construyo yo?',
+    a: 'Ambas opciones. Con la plataforma self-serve lo construyes tú con tus herramientas. Si quieres que lo diseñemos, construyamos y operemos por ti, eso es el servicio gestionado (de pago).' },
+  { q: '¿La plataforma gratis cubre los costos de WhatsApp/Meta?',
+    a: 'No. Meta cobra por los mensajes y conversaciones de la WhatsApp Business Platform (Cloud API) según sus tarifas vigentes. Esos costos los cubres tú con Meta; la plataforma te da el acceso y la operación, no subsidia el consumo de Meta.' },
+  { q: '¿Tiene costo la inteligencia artificial?',
+    a: 'El uso de modelos de IA puede tener costo según el proveedor y el volumen. En self-serve tú conectas y cubres tu propio proveedor de IA; en el servicio gestionado lo configuramos e incluimos según el plan.' },
+  { q: '¿Puedo usar n8n u otras herramientas?',
+    a: 'Sí. La plataforma coexiste con herramientas externas como n8n, agentes de IA o flujos propios. Traes tu n8n y lo conectas vía la API de coexistencia.' },
+  { q: '¿Qué es el Human Takeover y dónde está disponible?',
+    a: 'Permite que tu equipo tome el control de una conversación con un comando y luego la devuelva al bot. Se opera desde la consola; en los planes gestionados lo configuramos y acompañamos.' },
+  { q: '¿En cuánto tiempo está activo?',
+    a: 'En self-serve creas tu cuenta y conectas tu canal en minutos. En el servicio gestionado, según el alcance, normalmente entre 5 y 15 días.' },
+  { q: '¿Qué significa que Nixumi sea Meta Tech Provider?',
+    a: 'Que Nixumi es un proveedor tecnológico verificado por Meta para soluciones sobre WhatsApp Business: facilita la conexión, operación y automatización desde la plataforma.' },
 ] as const;
 ---
 
