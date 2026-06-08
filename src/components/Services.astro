@@ -51,40 +51,36 @@ const services = [
 ] as const;
 ---
 
-<section id="servicios" class="aurora-medium py-20 md:py-28">
+<section id="servicios" class="aurora-medium py-12 md:py-16">
   <div class="max-w-7xl mx-auto px-4 md:px-6">
 
     <!-- Heading -->
-    <div class="text-center mb-14 fade-in">
-      <div
-        class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full mb-4"
-        style="background:color-mix(in srgb, var(--primary) 10%, transparent); color:var(--primary)"
-      >
+    <div class="text-center mb-9 fade-in">
+      <div class="nx-eyebrow mb-3">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
         </svg>
         Nuestros servicios
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" style="color:var(--color-navy)">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3" style="color:var(--foreground)">
         Automatización a la medida de tu negocio
       </h2>
-      <p class="text-base md:text-lg max-w-xl mx-auto text-slate-500 dark:text-slate-400">
+      <p class="text-sm md:text-base max-w-xl mx-auto nx-muted">
         Desde el primer mensaje hasta el cierre de venta, cubrimos todo
         el proceso de atención con inteligencia artificial.
       </p>
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {services.map((s, i) => (
         <article
-          class={`service-card fade-in fade-d${(i % 3) + 1} group relative rounded-2xl p-7 cursor-default
+          class={`service-card fade-in fade-d${(i % 3) + 1} group nx-panel relative p-5 cursor-default
                   transition-all duration-300`}
-          style="background:var(--card); border:1px solid var(--border)"
         >
           <!-- Icon -->
           <div
-            class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+            class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105"
             style={`background:${s.iconBg}`}
           >
             <svg
@@ -99,17 +95,17 @@ const services = [
             />
           </div>
 
-          <h3 class="text-lg font-bold mb-2 transition-colors duration-200 group-hover:text-purple-600" style="color:var(--color-navy)">
+          <h3 class="text-base font-bold mb-2 transition-colors duration-200" style="color:var(--foreground)">
             {s.title}
           </h3>
-          <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+          <p class="text-sm leading-relaxed nx-muted">
             {s.description}
           </p>
 
           <!-- Hover: purple bottom border accent -->
           <div
             class="absolute bottom-0 left-6 right-6 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-            style="background:var(--color-purple)"
+            style="background:var(--primary)"
             aria-hidden="true"
           ></div>
         </article>

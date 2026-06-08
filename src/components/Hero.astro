@@ -5,38 +5,37 @@ const WA       = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20agendar%20
 const REGISTER = 'https://app.nixumi.lat/register';
 ---
 
-<section class="aurora-showcase relative min-h-screen flex items-center pt-28 pb-16">
+<section class="aurora-showcase relative min-h-[720px] flex items-center pt-24 pb-12">
 
   <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
       <!-- ── Left: Copy ── -->
       <div class="fade-in">
 
         <!-- Eyebrow badge -->
         <div
-          class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full mb-6"
-          style="background:rgba(139,92,246,0.1); color:var(--color-purple)"
+          class="nx-eyebrow mb-5"
         >
           <span
             class="w-2 h-2 rounded-full animate-pulse"
-            style="background:var(--color-purple)"
+            style="background:var(--primary)"
           ></span>
           Plataforma de WhatsApp con IA
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6" style="color:var(--color-navy)">
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.35rem] font-extrabold leading-tight tracking-tight mb-5" style="color:var(--foreground)">
           Tu negocio atendiendo clientes
-          <span style="color:var(--color-purple)"> 24/7</span> por
-          <span style="color:var(--color-green)"> WhatsApp</span>
+          <span style="color:var(--accent)"> 24/7</span> por
+          <span style="color:var(--primary)"> WhatsApp</span>
         </h1>
 
-        <p class="text-lg md:text-xl leading-relaxed mb-8 max-w-lg text-slate-600 dark:text-slate-300">
+        <p class="text-base md:text-lg leading-relaxed mb-6 max-w-lg nx-muted">
           Opera tu WhatsApp con IA desde nuestra consola — o deja que lo montemos y lo operemos por ti.
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-3 mb-8">
+        <div class="flex flex-col sm:flex-row gap-3 mb-6">
           <a
             href={REGISTER}
             class="btn-nx btn-primary"
@@ -62,8 +61,8 @@ const REGISTER = 'https://app.nixumi.lat/register';
         <!-- Trust signals -->
         <ul class="flex flex-wrap gap-4" role="list">
           {['Plataforma gratis · 1 canal', 'Sin código', 'Self-serve o gestionado'].map(t => (
-            <li class="flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--color-green)">
+            <li class="flex items-center gap-1.5 text-sm font-medium nx-muted">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--primary)">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
               </svg>
               {t}
@@ -84,7 +83,7 @@ const REGISTER = 'https://app.nixumi.lat/register';
           <!-- Glow -->
           <div
             class="absolute -inset-6 rounded-[3rem] blur-3xl pointer-events-none"
-            style="background:linear-gradient(135deg,rgba(139,92,246,0.25),rgba(95,184,95,0.2))"
+            style="background:linear-gradient(135deg,color-mix(in srgb, var(--accent) 25%, transparent),color-mix(in srgb, var(--primary) 18%, transparent))"
             aria-hidden="true"
           ></div>
 
@@ -185,16 +184,16 @@ const REGISTER = 'https://app.nixumi.lat/register';
           </div>
 
           <!-- Badge: IA activa -->
-          <div class="absolute -bottom-3 -right-3 bg-white dark:bg-slate-800 rounded-2xl px-3 py-2 shadow-xl" style="border:1px solid rgba(168,181,196,0.3)">
+          <div class="absolute -bottom-3 -right-3 nx-panel rounded-lg px-3 py-2">
             <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full animate-pulse" style="background:var(--color-green)"></span>
-              <span class="text-xs font-semibold" style="color:var(--color-navy)">IA respondiendo</span>
+              <span class="w-2 h-2 rounded-full animate-pulse" style="background:var(--primary)"></span>
+              <span class="text-xs font-semibold" style="color:var(--foreground)">IA respondiendo</span>
             </div>
           </div>
 
           <!-- Badge: 24/7 -->
-          <div class="absolute -top-3 -left-3 rounded-2xl px-3 py-2 shadow-xl" style="background:var(--color-purple)">
-            <span class="text-xs font-bold text-white">24/7 activo</span>
+          <div class="absolute -top-3 -left-3 rounded-lg px-3 py-2 shadow-xl" style="background:var(--primary); color:var(--primary-foreground)">
+            <span class="text-xs font-bold">24/7 activo</span>
           </div>
 
         </div>
