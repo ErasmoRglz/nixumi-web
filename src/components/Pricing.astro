@@ -104,7 +104,7 @@ const enterpriseBullets: Bullet[] = [
           id="btn-mxn"
           class="currency-btn px-4 py-1.5 rounded-md text-sm font-semibold transition-all duration-200"
           aria-pressed="true"
-          style="background:var(--color-purple); color:#fff"
+          style="background:var(--primary); color:var(--primary-foreground)"
         >
           🇲🇽 MXN
         </button>
@@ -515,12 +515,12 @@ const enterpriseBullets: Bullet[] = [
   function setActive(mxn: boolean) {
     isMXN = mxn;
 
-    btnMxn.style.background  = mxn ? 'var(--color-purple)' : 'transparent';
-    btnMxn.style.color        = mxn ? '#fff' : 'var(--color-slate)';
+    btnMxn.style.background  = mxn ? 'var(--primary)' : 'transparent';
+    btnMxn.style.color        = mxn ? 'var(--primary-foreground)' : 'var(--muted-foreground)';
     btnMxn.setAttribute('aria-pressed', String(mxn));
 
-    btnUsd.style.background   = mxn ? 'transparent' : 'var(--color-purple)';
-    btnUsd.style.color        = mxn ? 'var(--color-slate)' : '#fff';
+    btnUsd.style.background   = mxn ? 'transparent' : 'var(--primary)';
+    btnUsd.style.color        = mxn ? 'var(--muted-foreground)' : 'var(--primary-foreground)';
     btnUsd.setAttribute('aria-pressed', String(!mxn));
 
     updatePrices(mxn);
