@@ -1,5 +1,5 @@
 ---
-import MetaBadge from './MetaBadge.astro';
+import TrustItem from './TrustItem.astro';
 
 const WA = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20hablar%20con%20Nixumi';
 
@@ -81,34 +81,12 @@ const trustItems = [
     </div>
 
     <!-- BLOQUE 3: Trust reminder -->
-    <div class="mt-8 flex justify-center fade-in fade-d3">
-      <MetaBadge class="mb-2" />
-    </div>
     <ul
-      class="flex flex-wrap justify-center gap-x-6 gap-y-3 fade-in fade-d3"
+      class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 fade-in fade-d3"
       role="list"
     >
       {trustItems.map(item => (
-        <li class="flex items-center gap-2">
-          <div
-            class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-            style="background:color-mix(in srgb, var(--card) 64%, transparent); border:1px solid var(--border)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="var(--primary)"
-              aria-hidden="true"
-              set:html={item.icon}
-            />
-          </div>
-          <span class="text-sm font-medium nx-muted">
-            {item.label}
-          </span>
-        </li>
+        <TrustItem label={item.label} icon={item.icon} />
       ))}
     </ul>
 
@@ -119,8 +97,8 @@ const trustItems = [
   .cta-btn:hover {
     transform: scale(1.06);
     box-shadow:
-      0 0 44px rgba(95, 184, 95, 0.28),
-      0 12px 36px rgba(95, 184, 95, 0.20);
+      0 0 44px color-mix(in srgb, var(--wa) 28%, transparent),
+      0 12px 36px color-mix(in srgb, var(--wa) 20%, transparent);
   }
   .cta-btn:active {
     transform: scale(1.02);

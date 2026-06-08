@@ -1,8 +1,13 @@
 ---
-import MetaBadge from './MetaBadge.astro';
+import TrustItem from './TrustItem.astro';
 
 const WA       = 'https://wa.me/5212381238389?text=Hola%2C%20quiero%20agendar%20un%20diagn%C3%B3stico%20con%20Nixumi';
 const REGISTER = 'https://app.nixumi.lat/register';
+const trustSignals = [
+  'Plataforma gratis · 1 canal',
+  'Sin código',
+  'Self-serve o gestionado',
+] as const;
 ---
 
 <section class="aurora-showcase relative min-h-[720px] flex items-center pt-24 pb-12">
@@ -60,20 +65,12 @@ const REGISTER = 'https://app.nixumi.lat/register';
 
         <!-- Trust signals -->
         <ul class="flex flex-wrap gap-4" role="list">
-          {['Plataforma gratis · 1 canal', 'Sin código', 'Self-serve o gestionado'].map(t => (
-            <li class="flex items-center gap-1.5 text-sm font-medium nx-muted">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" style="color:var(--primary)">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-              </svg>
-              {t}
-            </li>
-          ))}
+          {trustSignals.map(t => <TrustItem label={t} />)}
         </ul>
 
-        <!-- Meta Tech Provider badge -->
-        <div class="mt-5">
-          <MetaBadge />
-        </div>
+        <p class="mt-3 text-xs font-semibold uppercase tracking-wider nx-muted">
+          Meta Tech Provider verificado para WhatsApp Business
+        </p>
       </div>
 
       <!-- ── Right: WhatsApp phone mockup ── -->
