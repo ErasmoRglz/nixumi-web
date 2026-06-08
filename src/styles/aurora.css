@@ -1,7 +1,8 @@
 /* ============================================================
-   AURORA PRISMA GLOBAL — Fondo animado unificado para Nixumi
-   CSS puro — importado directo en index.astro para que Vite
-   lo incluya sin que Tailwind v4 lo escanee o purgue.
+   AURORA GLOBAL — Fondo estático calmado para Nixumi
+   Glow radial sutil (teal/violeta) tras todo el sitio. CSS puro,
+   importado directo en index.astro para que Vite lo incluya sin
+   que Tailwind v4 lo escanee o purgue.
    ============================================================ */
 
 /* Contenedor fijo al viewport (fondo permanente, detrás de todo) */
