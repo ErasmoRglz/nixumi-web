@@ -1,0 +1,38 @@
+---
+const { class: className = '' } = Astro.props;
+---
+
+<span class={`meta-badge ${className}`} aria-label="Meta Tech Provider verificado">
+  <img
+    src="/brand/meta-tech-provider-wide.png"
+    alt="Meta Tech Provider"
+    width="320"
+    height="84"
+    class="meta-badge__image"
+    style="width:10rem;height:auto;max-width:100%;"
+    loading="lazy"
+    decoding="async"
+  />
+</span>
+
+<style>
+  .meta-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.35rem;
+    padding: 0.25rem 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.95);
+    color: #111827;
+    box-shadow: var(--shadow-card);
+  }
+
+  .meta-badge__image {
+    display: block;
+    width: 10rem;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+</style>

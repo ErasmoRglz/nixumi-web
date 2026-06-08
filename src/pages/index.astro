@@ -4,6 +4,7 @@ import '../styles/aurora.css';
 import Header          from '../components/Header.astro';
 import Hero             from '../components/Hero.astro';
 import ProblemSolution  from '../components/ProblemSolution.astro';
+import DosFormas from '../components/DosFormas.astro';
 import Services         from '../components/Services.astro';
 import Cases            from '../components/Cases.astro';
 import Process          from '../components/Process.astro';
@@ -22,52 +23,86 @@ import Footer           from '../components/Footer.astro';
   <link rel="icon" type="image/jpeg" href="/logo-white-bg.jpg" />
   <link rel="apple-touch-icon" href="/logo-white-bg.jpg" />
   <meta name="generator" content={Astro.generator} />
+  <meta name="facebook-domain-verification" content="dwowhmydfekq9zl0q2giceurfoiha0" />
 
   <!-- SEO -->
-  <title>Nixumi — Automatización de WhatsApp con IA para tu negocio</title>
-  <meta name="description" content="Construimos chatbots inteligentes con IA para WhatsApp que atienden clientes 24/7, califican leads y cierran ventas. Soluciones a medida para PyMEs mexicanas." />
+  <title>Nixumi — Plataforma de WhatsApp con IA + chatbots · Meta Tech Provider</title>
+  <meta name="description" content="Plataforma de WhatsApp Business con IA: conecta tu canal gratis y automatiza con tus herramientas, o deja que Nixumi diseñe y opere tu chatbot. Meta Tech Provider verificado." />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.nixumi.lat/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Nixumi — Automatización de WhatsApp con IA" />
-  <meta property="og:description" content="Chatbots de WhatsApp con IA para PyMEs. Atención 24/7, calificación de leads y ventas automatizadas." />
+  <meta property="og:title" content="Nixumi — Plataforma de WhatsApp con IA · Meta Tech Provider" />
+  <meta property="og:description" content="Conecta tu WhatsApp gratis y automatiza con tus herramientas, o contrata el servicio gestionado. Meta Tech Provider verificado." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.nixumi.lat/" />
   <meta property="og:locale" content="es_MX" />
-  <meta property="og:image" content="https://www.nixumi.lat/nixumi-logo.webp" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
-  <meta property="og:image:alt" content="Nixumi — Automatización de WhatsApp con IA" />
+  <meta property="og:image" content="https://www.nixumi.lat/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nixumi — Automatización de WhatsApp con IA para tu negocio" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nixumi — Automatización de WhatsApp con IA" />
-  <meta name="twitter:description" content="Chatbots de WhatsApp con IA para PyMEs. Atención 24/7, calificación de leads y ventas automatizadas." />
-  <meta name="twitter:image" content="https://www.nixumi.lat/nixumi-logo.webp" />
-  <meta name="twitter:image:alt" content="Nixumi — Automatización de WhatsApp con IA" />
+  <meta name="twitter:title" content="Nixumi — Plataforma de WhatsApp con IA · Meta Tech Provider" />
+  <meta name="twitter:description" content="Conecta tu WhatsApp gratis y automatiza con tus herramientas, o contrata el servicio gestionado. Meta Tech Provider verificado." />
+  <meta name="twitter:image" content="https://www.nixumi.lat/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Nixumi — Automatización de WhatsApp con IA para tu negocio" />
 
 
-  <!-- Anti-FOUC: aplica .dark antes del primer render -->
+  <!-- Anti-FOUC: aplica .dark antes del primer render (default dark) -->
   <script is:inline>
     (function () {
-      const stored = localStorage.getItem('nixumi-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      if (theme === 'dark') document.documentElement.classList.add('dark');
+      var stored = null;
+      try { stored = localStorage.getItem('nixumi-theme'); } catch (e) {}
+      var theme = (stored === 'light' || stored === 'dark')
+        ? stored
+        : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      var root = document.documentElement;
+      root.dataset.theme = theme;
+      root.classList.toggle('dark', theme === 'dark');
     })();
   </script>
 
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: IBM Plex Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Google Tag Manager -->
+  <script is:inline>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Meta Pixel -->
+  <script is:inline>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'PIXEL_ID_AQUI');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=PIXEL_ID_AQUI&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel -->
 </head>
 <body class="antialiased">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Aurora global — fondo animado fijo detrás de toda la página -->
   <div class="aurora-global" aria-hidden="true">
@@ -80,6 +115,7 @@ import Footer           from '../components/Footer.astro';
   <main id="main-content" class="relative" style="z-index:1">
     <Hero />
     <ProblemSolution />
+    <DosFormas />
     <Services />
     <Cases />
     <Process />
@@ -110,6 +146,32 @@ import Footer           from '../components/Footer.astro';
       { threshold: 0.12 }
     );
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Tracking de eventos WhatsApp y formulario -->
+  <script>
+  // Tracking de eventos WhatsApp
+  document.querySelectorAll('[data-wa-event]').forEach(el => {
+    el.addEventListener('click', () => {
+      const eventName = el.dataset.waEvent;
+      if (window.dataLayer) {
+        window.dataLayer.push({ 'event': eventName });
+      }
+      if (window.fbq) {
+        fbq('track', 'Lead', { content_name: eventName });
+      }
+    });
+  });
+
+  // Tracking de formulario
+  document.addEventListener('formSubmitSuccess', () => {
+    if (window.dataLayer) {
+      window.dataLayer.push({ 'event': 'form_submit_success' });
+    }
+    if (window.fbq) {
+      fbq('track', 'Lead', { content_name: 'form_submit_success' });
+    }
+  });
   </script>
 
 </body>

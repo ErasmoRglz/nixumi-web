@@ -1,20 +1,21 @@
 ---
 ---
 
-<div id="lead-form-section" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+<div id="lead-form-section" class="py-12 md:py-16">
   <div class="max-w-xl mx-auto px-4 md:px-6">
-    <div class="text-center mb-10">
-      <h2 id="form-title" class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-navy)">
+    <div class="text-center mb-8">
+      <p class="nx-eyebrow mb-3">Diagnóstico</p>
+      <h2 id="form-title" class="text-2xl md:text-3xl font-bold mb-3" style="color: var(--foreground)">
         ¿Listo para automatizar tu negocio?
       </h2>
-      <p id="form-subtitle" class="text-lg text-slate-600 dark:text-slate-300">
-        Déjanos tus datos y nos pondremos en contacto contigo en menos de 24 horas.
+      <p id="form-subtitle" class="text-sm md:text-base nx-muted">
+        Te escribiremos por WhatsApp en menos de 24 horas para agendar tu diagnóstico gratuito de 30 minutos. Sin costo, sin compromiso.
       </p>
     </div>
 
-    <form id="lead-form" class="space-y-5">
+    <form id="lead-form" class="nx-panel space-y-4 p-5 md:p-6">
       <div>
-        <label for="nombre" class="block text-base font-medium mb-2" style="color: var(--color-navy)">
+        <label for="nombre" class="block text-sm font-semibold mb-1.5" style="color: var(--foreground)">
           Nombre completo
         </label>
         <input
@@ -25,30 +26,35 @@
           minlength="3"
           maxlength="100"
           placeholder="Ej. Juan Pérez"
-          class="w-full px-4 py-4 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-navy dark:text-white text-base focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+          oninvalid="this.setCustomValidity('El nombre debe tener al menos 3 caracteres.')"
+          oninput="this.setCustomValidity('')"
+          class="lead-input w-full px-3 py-3 rounded-lg text-sm transition-all"
         />
       </div>
 
       <div>
-        <label for="whatsapp" class="block text-base font-medium mb-2" style="color: var(--color-navy)">
+        <label for="whatsapp" class="block text-sm font-semibold mb-1.5" style="color: var(--foreground)">
           Número de WhatsApp
         </label>
-        <div class="flex rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus-within:ring-2 focus-within:ring-purple focus-within:border-transparent transition-all overflow-hidden">
-          <span class="flex items-center px-4 py-4 text-base font-medium select-none whitespace-nowrap shrink-0 bg-slate-100 dark:bg-slate-700" style="color: var(--color-navy)">+52</span>
+        <div class="lead-input-group flex rounded-lg transition-all overflow-hidden">
+          <span class="flex items-center px-3 py-3 text-sm font-semibold select-none whitespace-nowrap shrink-0" style="color: var(--foreground); background:color-mix(in srgb, var(--card) 70%, var(--background))">+52</span>
           <input
             type="tel"
             id="whatsapp"
             name="whatsapp"
             required
-            placeholder="236 112 5488"
-            class="w-full px-4 py-4 text-navy dark:text-white text-base bg-transparent border-none outline-none"
+            placeholder="55 1234 5678"
+            oninvalid="this.setCustomValidity('El número de WhatsApp es obligatorio.')"
+            oninput="this.setCustomValidity('')"
+            class="w-full px-3 py-3 text-sm bg-transparent border-none outline-none"
+            style="color:var(--foreground)"
           />
         </div>
-        <p class="text-base text-slate-500 mt-1">Ingresa los 10 dígitos de tu número. Ej: 236 112 5488</p>
+        <p class="text-xs mt-1.5 nx-muted">Ingresa los 10 dígitos de tu número. Ej: 55 1234 5678</p>
       </div>
 
       <div>
-        <label for="negocio" class="block text-base font-medium mb-2" style="color: var(--color-navy)">
+        <label for="negocio" class="block text-sm font-semibold mb-1.5" style="color: var(--foreground)">
           Nombre de tu negocio
         </label>
         <input
@@ -59,8 +65,39 @@
           minlength="2"
           maxlength="100"
           placeholder="Ej. Inmobiliaria El Valle"
-          class="w-full px-4 py-4 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-navy dark:text-white text-base focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+          oninvalid="this.setCustomValidity('El nombre del negocio debe tener al menos 2 caracteres.')"
+          oninput="this.setCustomValidity('')"
+          class="lead-input w-full px-3 py-3 rounded-lg text-sm transition-all"
         />
+      </div>
+
+      <!-- Honeypot anti-spam (invisible para humanos) -->
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <label for="website">No llenar</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <!-- Checkbox de consentimiento -->
+      <div class="mb-4">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            id="consentimiento"
+            name="consentimiento"
+            required
+            oninvalid="this.setCustomValidity('Debes aceptar el Aviso de Privacidad para continuar.')"
+            oninput="this.setCustomValidity('')"
+            class="mt-1 h-4 w-4 rounded"
+            style="accent-color:var(--primary)"
+          />
+          <span class="text-sm leading-relaxed nx-muted">
+            Acepto el
+            <a href="/aviso-de-privacidad" target="_blank" class="font-semibold underline underline-offset-2 transition-colors" style="color:var(--primary)">
+              Aviso de Privacidad
+            </a>
+            y autorizo el tratamiento de mis datos personales para recibir información sobre los servicios de Nixumi.
+          </span>
+        </label>
       </div>
 
       <button
@@ -68,30 +105,30 @@
         id="submit-btn"
         class="w-full btn-nx btn-primary btn-lg flex items-center justify-center gap-2"
       >
-        <span>Enviar datos</span>
+        <span>Quiero mi diagnóstico gratis</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
         </svg>
       </button>
     </form>
 
-    <div id="success-content" class="hidden text-center py-8">
-      <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green/10 flex items-center justify-center">
+    <div id="success-content" class="hidden nx-panel text-center py-8 px-5">
+      <div class="w-16 h-16 mx-auto mb-5 rounded-lg flex items-center justify-center" style="background:color-mix(in srgb, var(--primary) 10%, transparent)">
         <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" stroke="var(--color-green)" stroke-width="2"/>
-          <path class="checkmark-check" fill="none" stroke="var(--color-green)" stroke-width="2" d="M14 27l7 7 16-16"/>
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" stroke="var(--primary)" stroke-width="2"/>
+          <path class="checkmark-check" fill="none" stroke="var(--primary)" stroke-width="2" d="M14 27l7 7 16-16"/>
         </svg>
       </div>
-      <h3 class="text-2xl font-bold mb-3" style="color: var(--color-navy)">¡Gracias por confiar en Nixumi! 🎉</h3>
-      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
-        Hemos recibido tus datos correctamente. Uno de nuestros asesores se pondrá en contacto contigo en menos de 24 horas para conocer tu proyecto y ofrecerte la mejor solución.
+      <h3 class="text-xl font-bold mb-3" style="color: var(--foreground)">¡Gracias por confiar en Nixumi! 🎉</h3>
+      <p class="text-sm md:text-base nx-muted mb-6">
+        Hemos recibido tus datos correctamente. En las próximas 24 horas te escribiremos por WhatsApp para agendar tu diagnóstico gratuito de 30 minutos. Mientras tanto, si tienes alguna duda, escríbenos directamente.
       </p>
-      <a href="/" class="inline-block text-sm font-medium px-5 py-2.5 rounded-lg border-2 transition-colors hover:opacity-80" style="border-color: var(--color-purple); color: var(--color-purple);">
+      <a href="/" class="btn-nx btn-outline btn-sm">
         ← Volver al inicio
       </a>
     </div>
 
-    <div id="error-content" class="hidden text-center py-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+    <div id="error-content" class="hidden text-center py-3 px-4 rounded-lg mt-4" style="background:color-mix(in srgb, #ef4444 10%, transparent); border:1px solid color-mix(in srgb, #ef4444 28%, var(--border))">
       <p id="error-message" class="text-red-600 dark:text-red-400 font-medium"></p>
     </div>
   </div>
@@ -158,6 +195,17 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
       return;
     }
 
+    // Verificar honeypot (si tiene contenido, es bot)
+    const website = (formData.get('website')?.toString() || '').trim();
+    if (website) {
+      // Bot detectado — fingir éxito sin enviar
+      formTitle.classList.add('hidden');
+      formSubtitle.classList.add('hidden');
+      form.classList.add('hidden');
+      successContent.classList.remove('hidden');
+      return;
+    }
+
     const data = {
       nombre_completo: nombre,
       whatsapp: whatsappLimpio,
@@ -213,7 +261,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
       
       submitBtn.disabled = false;
       submitBtn.innerHTML = `
-        <span>Enviar datos</span>
+        <span>Quiero mi diagnóstico gratis</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
         </svg>
@@ -238,7 +286,26 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 <style>
   #lead-form-section {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(95, 184, 95, 0.05) 100%);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+  }
+
+  .lead-input,
+  .lead-input-group {
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--card) 88%, var(--background));
+    color: var(--foreground);
+  }
+
+  .lead-input::placeholder,
+  .lead-input-group input::placeholder {
+    color: color-mix(in srgb, var(--muted-foreground) 72%, transparent);
+  }
+
+  .lead-input:focus,
+  .lead-input-group:focus-within {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 24%, transparent);
   }
 
   /* Animación del checkmark */
