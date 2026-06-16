@@ -67,13 +67,17 @@ const businessDays = getNextBusinessDays();
   <meta name="twitter:description" content="Agenda una asesoría gratuita de 30 minutos con Nixumi." />
   <meta name="twitter:image" content="https://www.nixumi.lat/og-image.jpg" />
 
-  <!-- Anti-FOUC: aplica .dark antes del primer render -->
+  <!-- Anti-FOUC: aplica .dark antes del primer render (default dark, igual que index.astro) -->
   <script is:inline>
     (function () {
-      const stored = localStorage.getItem('nixumi-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      if (theme === 'dark') document.documentElement.classList.add('dark');
+      var stored = null;
+      try { stored = localStorage.getItem('nixumi-theme'); } catch (e) {}
+      var theme = (stored === 'light' || stored === 'dark')
+        ? stored
+        : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      var root = document.documentElement;
+      root.dataset.theme = theme;
+      root.classList.toggle('dark', theme === 'dark');
     })();
   </script>
 
@@ -136,7 +140,7 @@ const businessDays = getNextBusinessDays();
 
       <!-- Días disponibles -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {businessDays.map(day => (
+        {businessDays.map((day, i) => (
           <a
             href={GOOGLE_CALENDAR_URL}
             target="_blank"
@@ -150,7 +154,7 @@ const businessDays = getNextBusinessDays();
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <p class="font-semibold text-lg mb-1 capitalize" style="color: var(--color-navy)">
+              <p class="font-semibold text-lg mb-1 capitalize" style="color: var(--color-navy)" data-day-slot={i}>
                 {day.display}
               </p>
               <p class="text-sm text-slate-500">
@@ -214,6 +218,37 @@ const businessDays = getNextBusinessDays();
   <script>
     import { initTheme } from '../scripts/theme';
     initTheme();
+  </script>
+
+  <!-- Fechas frescas en cliente: el sitio es estático, así que las fechas
+       renderizadas en build se quedan congeladas. Recalculamos los próximos
+       3 días hábiles en cada carga para no mostrar nunca fechas pasadas. -->
+  <script>
+    function nextBusinessDays(n: number): string[] {
+      const out: string[] = [];
+      const cur = new Date();
+      cur.setDate(cur.getDate() + 1); // empezar mañana
+      while (out.length < n) {
+        const dow = cur.getDay();
+        if (dow !== 0 && dow !== 6) {
+          out.push(
+            cur.toLocaleDateString('es-MX', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'short',
+            }),
+          );
+        }
+        cur.setDate(cur.getDate() + 1);
+      }
+      return out;
+    }
+
+    const days = nextBusinessDays(3);
+    document.querySelectorAll<HTMLElement>('[data-day-slot]').forEach((el) => {
+      const i = Number(el.dataset.daySlot);
+      if (!Number.isNaN(i) && days[i]) el.textContent = days[i];
+    });
   </script>
 </body>
 </html>
